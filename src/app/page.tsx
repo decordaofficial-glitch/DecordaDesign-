@@ -1,9 +1,10 @@
 
 "use client";
 import Image from "next/image";
-import { Search, User, ShoppingCart, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, User, ShoppingCart, ChevronLeft, ChevronRight, ShieldCheck, CircleDollarSign, Truck, Undo2, MapPin, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Link from 'next/link';
 
 export default function Home() {
@@ -34,18 +35,65 @@ export default function Home() {
     },
   ];
 
+  const testimonials = [
+    {
+      name: "Fareeha Sohail",
+      rating: 5,
+      text: "Romantic birthday backdrops ***** Ordered this from the house to helix Birthday. backdrop for my elder sister's party, and it was a game-changer! long-lasting, vibrant colors, and well-made for stunning photos. Highly recommended for an instant party.",
+      image: "https://picsum.photos/seed/avatar1/150/150",
+      imageHint: "woman portrait"
+    },
+    {
+      name: "Anonymous",
+      rating: 5,
+      text: "Thankyou so Much ❤️❤️ bohat acha bhaiya plan 😍😍 I love it ❤️",
+      image: "https://picsum.photos/seed/testimonial2/150/150",
+      imageHint: "event balloons"
+    },
+    {
+      name: "Anonymous",
+      rating: 5,
+      text: "",
+      image: "https://picsum.photos/seed/avatar3/150/150",
+      imageHint: "man portrait"
+    }
+  ]
+
+  const benefits = [
+    {
+      icon: <CircleDollarSign className="h-6 w-6 text-primary" />,
+      title: "Money Back Guarantee",
+      content: "We offer a money back guarantee if you are not satisfied with our products."
+    },
+    {
+      icon: <ShieldCheck className="h-6 w-6 text-primary" />,
+      title: "Pay On Delivery",
+      content: "Pay for your order when it is delivered to your doorstep."
+    },
+    {
+      icon: <Truck className="h-6 w-6 text-primary" />,
+      title: "Express Delivery",
+      content: "Get your order delivered to you in the fastest time possible."
+    },
+    {
+      icon: <Undo2 className="h-6 w-6 text-primary" />,
+      title: "Easy Return Process",
+      content: "We have a simple and easy return process for your convenience."
+    },
+  ]
+
   return (
-    <div className="bg-white text-gray-800">
+    <div className="bg-[#F8F8F8] text-gray-800">
       <div className="bg-gray-800 text-white text-center py-2 text-sm">
         Free shipping for orders over Rs 999
       </div>
 
-      <header className="border-b">
+      <header className="border-b bg-white">
         <div className="container mx-auto px-4">
             <div className="flex items-center justify-between py-4">
                 <div className="flex items-center gap-8">
                     <Link href="/" className="text-2xl font-bold text-gray-900">DECORBA</Link>
-                    <nav className="hidden md:flex items-center gap-6 text-sm">
+                    <nav className="hidden md:flex items-center gap-6 text-sm text-gray-600">
                         <Link href="#" className="hover:text-primary">Home</Link>
                         <Link href="#" className="hover:text-primary">Event Backdrops</Link>
                         <Link href="#" className="hover:text-primary">Cards & Invitations</Link>
@@ -58,7 +106,7 @@ export default function Home() {
                     </nav>
                 </div>
                 <div className="flex items-center gap-4">
-                    <Button variant="outline" className="hidden md:inline-flex">Shop Now</Button>
+                    <Button variant="outline" className="hidden md:inline-flex border-primary text-primary hover:bg-primary hover:text-white">Shop Now</Button>
                     <div className="flex items-center gap-4">
                       <Search className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
                       <User className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
@@ -97,9 +145,9 @@ export default function Home() {
             </div>
         </div>
 
-        <section className="py-16">
+        <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-10">Featured Products</h2>
+            <h2 className="text-4xl font-bold text-center mb-10 text-primary">Featured Products</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
               {products.map((product) => (
                 <Card key={product.name} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -108,10 +156,10 @@ export default function Home() {
                        <Image src={product.image} alt={product.name} fill className="object-cover" data-ai-hint={product.imageHint} />
                     </div>
                     <div className="p-6 text-center">
-                      <h3 className="text-lg font-semibold">{product.name}</h3>
+                      <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
                       <p className="text-gray-600 mt-2">Starting From:</p>
                       <p className="text-xl font-bold text-primary mt-1">{product.price}</p>
-                      <Button variant="outline" className="mt-6">Buy Now</Button>
+                      <Button variant="outline" className="mt-6 border-primary text-primary hover:bg-primary hover:text-white">Buy Now</Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -136,7 +184,7 @@ export default function Home() {
             </div>
         </section>
 
-        <section className="py-16">
+        <section className="py-16 bg-white">
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl order-last md:order-first">
@@ -153,7 +201,124 @@ export default function Home() {
             </div>
         </section>
 
+        <section className="py-16 bg-gray-50">
+            <div className="container mx-auto px-4">
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 className="text-4xl font-bold text-primary">Know More About Decorda</h2>
+                        <p className="mt-4 text-gray-600">Welcome to Decorda Design, your one-stop destination for all your event supplies and home decor needs! At Decorda, we blend creativity with quality to transform your special occasions and living spaces into unforgettable experiences. From elegant event supplies that set the perfect ambiance to stylish home decor pieces that reflect your unique taste, Decorda Design is your partner in turning dreams into reality. Discover a world of curated designs and impeccable craftsmanship—where every detail matters. Elevate your events and homes with Decorda Design, where style meets substance.</p>
+                        <Button variant="outline" className="mt-6 border-primary text-primary hover:bg-primary hover:text-white">Learn More</Button>
+                    </div>
+                    <div className="relative h-[400px] rounded-lg overflow-hidden flex items-center justify-center bg-black">
+                        <Image src="https://picsum.photos/seed/decordalogo/400/300" alt="Decorda Logo" width={300} height={225} className="object-contain" data-ai-hint="company logo" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-center mb-10 text-primary">Why Clients Love Us</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4">
+                       <Image src={testimonial.image} alt={testimonial.name} width={80} height={80} className="rounded-full object-cover" data-ai-hint={testimonial.imageHint} />
+                       <div>
+                         <p className="font-semibold">{testimonial.name}</p>
+                         <div className="flex text-yellow-500">
+                           {[...Array(testimonial.rating)].map((_, i) => <span key={i}>★</span>)}
+                         </div>
+                       </div>
+                    </div>
+                    <p className="text-gray-600 mt-4 text-sm">{testimonial.text}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="relative h-[400px] w-full my-16">
+            <Image
+                src="https://picsum.photos/seed/sale-banner/1920/400"
+                alt="Sale banner"
+                fill
+                className="object-cover"
+                data-ai-hint="modern living room"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div className="text-center text-white">
+                    <h2 className="text-5xl md:text-6xl font-bold">Sale up to 20% Off</h2>
+                    <p className="mt-4 text-lg">Find the perfect match for your event decor in a reasonable price</p>
+                    <Button variant="secondary" className="mt-8 bg-white text-black hover:bg-gray-200">Shop Now</Button>
+                </div>
+            </div>
+        </section>
+
+        <section className="py-16 bg-gray-50">
+            <div className="container mx-auto px-4">
+                <h2 className="text-4xl font-bold text-center mb-10 text-primary">Our Benefits</h2>
+                 <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
+                    {benefits.map((benefit, index) => (
+                      <AccordionItem key={index} value={`item-${index+1}`}>
+                        <AccordionTrigger>
+                          <div className="flex items-center gap-4">
+                            {benefit.icon}
+                            <span className="font-semibold">{benefit.title}</span>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="pl-10">
+                          {benefit.content}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                </Accordion>
+            </div>
+        </section>
+
+        <section className="py-16 bg-white">
+            <div className="container mx-auto px-4">
+                <h2 className="text-4xl font-bold text-center mb-10 text-primary">Contact Us</h2>
+                <div className="grid md:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <h3 className="text-xl font-bold text-gray-800">Gulistan e Johar Branch</h3>
+                        <p className="mt-4 text-gray-600">Office 901, 9th Floor, Rose Building, Neighborhood Section 20, Gulistan e Johar, Near Toyota Showroom</p>
+                        <p className="mt-2 text-gray-600">Karachi, Pakistan</p>
+                        <a href="#" className="text-primary mt-2 inline-flex items-center gap-1">Get directions <MapPin className="h-4 w-4" /></a>
+                        
+                        <h3 className="text-xl font-bold text-gray-800 mt-8">Open hours</h3>
+                        <p className="mt-2 text-gray-600">Always Open</p>
+
+                        <h3 className="text-xl font-bold text-gray-800 mt-8">Contact Info</h3>
+                        <p className="mt-2 text-gray-600">+92 319 2483064</p>
+                        <p className="mt-1 text-gray-600">decordesign@gmail.com</p>
+
+                        <div className="flex gap-4 mt-4">
+                          <a href="#" className="text-primary hover:text-primary/80"><Facebook className="h-6 w-6" /></a>
+                          <a href="#" className="text-primary hover:text-primary/80"><Instagram className="h-6 w-6" /></a>
+                        </div>
+                    </div>
+                    <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+                        <Image src="https://picsum.photos/seed/map/800/600" alt="Map" fill className="object-cover" data-ai-hint="store map" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
       </main>
+
+      <footer className="bg-gray-800 text-white py-8">
+        <div className="container mx-auto px-4 text-center text-sm">
+          <p>Decorda Design</p>
+          <div className="flex justify-center gap-4 mt-2">
+            <Link href="#" className="hover:underline">Cookie settings</Link>
+            <Link href="#" className="hover:underline">Report abuse</Link>
+          </div>
+          <p className="mt-4 text-gray-400">Powered by Lightpost</p>
+        </div>
+      </footer>
     </div>
   );
 }
