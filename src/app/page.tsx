@@ -1,267 +1,125 @@
+
+"use client";
 import Image from "next/image";
-import {
-  MoreVertical,
-  Plus,
-  LayoutDashboard,
-  Workflow,
-  BookCopy,
-  Users,
-  Settings,
-  HelpCircle,
-  Search,
-  ChevronsUpDown,
-} from "lucide-react";
-import {
-  SidebarProvider,
-  Sidebar,
-  SidebarHeader,
-  SidebarContent,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
-  SidebarFooter,
-  SidebarInset,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
+import { Search, User, ShoppingCart, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Input } from "@/components/ui/input";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  Table,
-  TableHeader,
-  TableRow,
-  TableHead,
-  TableBody,
-  TableCell,
-} from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import Link from 'next/link';
 
 export default function Home() {
-  const workflows = [
+  const products = [
     {
-      name: "Quarterly review",
-      status: "Live",
-      lastUpdated: "2 days ago",
+      name: "Birthday Event Backdrops",
+      price: "1,199.00Rs",
+      image: "https://picsum.photos/seed/product1/400/400",
+      imageHint: "birthday backdrop"
     },
     {
-      name: "Onboarding sequence",
-      status: "Live",
-      lastUpdated: "3 days ago",
+      name: "Wedding Backdrop",
+      price: "1,299.00Rs",
+      image: "https://picsum.photos/seed/product2/400/400",
+      imageHint: "wedding backdrop"
     },
     {
-      name: "Sales outreach",
-      status: "Paused",
-      lastUpdated: "5 days ago",
+      name: "3D Wall Clocks",
+      price: "799.00Rs",
+      image: "https://picsum.photos/seed/product3/400/400",
+      imageHint: "wall clock"
     },
     {
-      name: "Support follow-up",
-      status: "Live",
-      lastUpdated: "1 week ago",
-    },
-    {
-      name: "Feature announcement",
-      status: "Paused",
-      lastUpdated: "2 weeks ago",
+      name: "PVC Panaflex Wallpaper",
+      price: "1,299.00Rs",
+      image: "https://picsum.photos/seed/product4/400/400",
+      imageHint: "pvc wallpaper"
     },
   ];
 
   return (
-    <SidebarProvider>
-      <Sidebar>
-        <SidebarHeader>
-          <div className="flex items-center gap-2">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="text-primary"
-            >
-              <circle
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-            </svg>
-            <h2 className="text-lg font-semibold">Automations</h2>
-          </div>
-          <Button className="w-full">
-            <Plus className="mr-2" /> Create new
-          </Button>
-        </SidebarHeader>
-        <SidebarContent>
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton tooltip="Dashboard">
-                <LayoutDashboard />
-                Dashboard
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton tooltip="Workflows" isActive>
-                <Workflow />
-                Workflows
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton tooltip="Templates">
-                <BookCopy />
-                Templates
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton tooltip="Integrations">
-                <LayoutDashboard />
-                Integrations
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-          <Separator className="my-2" />
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton tooltip="Team">
-                <Users />
-                Team
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton tooltip="Settings">
-                <Settings />
-                Settings
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton tooltip="Help & Support">
-                <HelpCircle />
-                Help & Support
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        </SidebarContent>
-        <SidebarFooter>
-          <div className="flex items-center gap-3">
-            <Avatar>
-              <AvatarImage src="https://picsum.photos/seed/1/40/40" />
-              <AvatarFallback>OM</AvatarFallback>
-            </Avatar>
-            <div className="flex-1 overflow-hidden">
-              <p className="font-semibold truncate">Olivia Martin</p>
-              <p className="text-xs text-muted-foreground truncate">
-                olivia.martin@email.com
-              </p>
-            </div>
-            <Button variant="ghost" size="icon">
-              <MoreVertical />
-            </Button>
-          </div>
-        </SidebarFooter>
-      </Sidebar>
-      <SidebarInset>
-        <div className="p-6">
-          <header className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-4">
-              <SidebarTrigger className="md:hidden" />
-              <h1 className="text-2xl font-semibold">Workflows</h1>
-            </div>
-            <div className="flex items-center gap-2">
-              <Button variant="outline">Upgrade</Button>
-              <Button>
-                <Plus className="mr-2" />
-                Create workflow
-              </Button>
-            </div>
-          </header>
+    <div className="bg-white text-gray-800">
+      <div className="bg-gray-800 text-white text-center py-2 text-sm">
+        Free shipping for orders over Rs 999
+      </div>
 
-          <Tabs defaultValue="active">
-            <TabsList>
-              <TabsTrigger value="active">Active</TabsTrigger>
-              <TabsTrigger value="archived">Archived</TabsTrigger>
-            </TabsList>
-            <TabsContent value="active">
-              <div className="my-4 flex items-center gap-4">
-                <div className="relative flex-1">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                  <Input
-                    placeholder="Search workflows..."
-                    className="pl-10 w-full"
-                  />
+      <header className="border-b">
+        <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between py-4">
+                <div className="flex items-center gap-8">
+                    <Link href="/" className="text-2xl font-bold text-gray-900">DECORBA</Link>
+                    <nav className="hidden md:flex items-center gap-6 text-sm">
+                        <Link href="#" className="hover:text-primary">Home</Link>
+                        <Link href="#" className="hover:text-primary">Event Backdrops</Link>
+                        <Link href="#" className="hover:text-primary">Cards & Invitations</Link>
+                        <Link href="#" className="hover:text-primary">Welcome Standee</Link>
+                        <Link href="#" className="hover:text-primary">Home Decor</Link>
+                        <Link href="#" className="hover:text-primary">Wall Poster</Link>
+                        <Link href="#" className="hover:text-primary">Party Supplies</Link>
+                        <Link href="#" className="hover:text-primary">Contact Us</Link>
+                        <Link href="#" className="hover:text-primary">About Us</Link>
+                    </nav>
                 </div>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="outline" className="shrink-0">
-                      Filter by status <ChevronsUpDown className="ml-2" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuItem>Live</DropdownMenuItem>
-                    <DropdownMenuItem>Paused</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
-              <div className="border rounded-lg">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Name</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead>Last updated</TableHead>
-                      <TableHead className="text-right">Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {workflows.map((flow) => (
-                      <TableRow key={flow.name}>
-                        <TableCell className="font-medium">
-                          {flow.name}
-                        </TableCell>
-                        <TableCell>
-                          <Badge
-                            variant={
-                              flow.status === "Live"
-                                ? "secondary"
-                                : "outline"
-                            }
-                            className="flex items-center gap-2 w-fit"
-                          >
-                            <span
-                              className={`h-2 w-2 rounded-full ${
-                                flow.status === "Live"
-                                  ? "bg-green-500"
-                                  : "bg-yellow-500"
-                              }`}
-                            ></span>
-                            {flow.status}
-                          </Badge>
-                        </TableCell>
-                        <TableCell>{flow.lastUpdated}</TableCell>
-                        <TableCell className="text-right">
-                          <Button variant="ghost" size="sm">
-                            Edit
-                          </Button>
-                          <Button variant="ghost" size="icon">
-                            <MoreVertical />
-                          </Button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            </TabsContent>
-          </Tabs>
+                <div className="flex items-center gap-4">
+                    <Button variant="outline" className="hidden md:inline-flex">Shop Now</Button>
+                    <div className="flex items-center gap-4">
+                      <Search className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
+                      <User className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
+                      <ShoppingCart className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
+                    </div>
+                </div>
+            </div>
         </div>
-      </SidebarInset>
-    </SidebarProvider>
+      </header>
+
+      <main>
+        <div className="relative h-[600px] w-full">
+            <Image
+                src="https://picsum.photos/seed/hero-backdrop/1920/600"
+                alt="Events Backdrop"
+                fill
+                className="object-cover"
+                data-ai-hint="event backdrop"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <div className="text-center text-white">
+                    <h1 className="text-5xl md:text-7xl font-bold">Event's Backdrops</h1>
+                    <p className="mt-4 text-lg">Create unforgettable moments with our stunning event backdrops.</p>
+                    <Button variant="secondary" className="mt-8 bg-white text-black hover:bg-gray-200">Shop Now</Button>
+                </div>
+            </div>
+            <div className="absolute left-4 top-1/2 -translate-y-1/2">
+                <Button variant="ghost" size="icon" className="text-white hover:bg-white/20">
+                    <ChevronLeft className="h-8 w-8" />
+                </Button>
+            </div>
+            <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                <Button variant="ghost" size="icon" className="text-white hover:bg-white/20">
+                    <ChevronRight className="h-8 w-8" />
+                </Button>
+            </div>
+        </div>
+
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-center mb-10">Featured Products</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+              {products.map((product) => (
+                <Card key={product.name} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <CardContent className="p-0">
+                    <div className="relative h-64 w-full">
+                       <Image src={product.image} alt={product.name} fill className="object-cover" data-ai-hint={product.imageHint} />
+                    </div>
+                    <div className="p-6 text-center">
+                      <h3 className="text-lg font-semibold">{product.name}</h3>
+                      <p className="text-gray-600 mt-2">Starting From:</p>
+                      <p className="text-xl font-bold text-primary mt-1">{product.price}</p>
+                      <Button variant="outline" className="mt-6">Buy Now</Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
   );
 }
