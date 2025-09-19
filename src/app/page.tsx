@@ -144,9 +144,9 @@ export default function Home() {
           <Carousel
             opts={{ loop: true }}
             plugins={[plugin.current]}
+            className="w-full"
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
-            className="w-full"
           >
             <CarouselContent>
               {heroSlides.map((slide, index) => (
@@ -352,7 +352,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-
-    
