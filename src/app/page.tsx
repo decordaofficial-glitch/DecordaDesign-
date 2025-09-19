@@ -14,49 +14,49 @@ export default function Home() {
     {
       name: "Birthday Event Backdrops",
       price: "1,199.00Rs",
-      image: "https://picsum.photos/seed/product1/400/400",
+      image: "https://picsum.photos/seed/product1/400/600",
       imageHint: "birthday backdrop"
     },
     {
       name: "Wedding Backdrop",
       price: "1,299.00Rs",
-      image: "https://picsum.photos/seed/product2/400/400",
+      image: "https://picsum.photos/seed/product2/400/600",
       imageHint: "wedding backdrop"
     },
     {
       name: "3D Wall Clocks",
       price: "799.00Rs",
-      image: "https://picsum.photos/seed/product3/400/400",
+      image: "https://picsum.photos/seed/product3/400/600",
       imageHint: "wall clock"
     },
     {
       name: "PVC Panaflex Wallpaper",
       price: "1,299.00Rs",
-      image: "https://picsum.photos/seed/product4/400/400",
+      image: "https://picsum.photos/seed/product4/400/600",
       imageHint: "pvc wallpaper"
     },
     {
       name: "Anniversary Decor",
       price: "1,499.00Rs",
-      image: "https://picsum.photos/seed/product5/400/400",
+      image: "https://picsum.photos/seed/product5/400/600",
       imageHint: "anniversary decoration"
     },
     {
       name: "Custom Neon Signs",
       price: "2,499.00Rs",
-      image: "https://picsum.photos/seed/product6/400/400",
+      image: "https://picsum.photos/seed/product6/400/600",
       imageHint: "neon sign"
     },
     {
       name: "Modern Art Prints",
       price: "899.00Rs",
-      image: "https://picsum.photos/seed/product7/400/400",
+      image: "https://picsum.photos/seed/product7/400/600",
       imageHint: "abstract art"
     },
     {
       name: "Party Balloon Arch",
       price: "1,799.00Rs",
-      image: "https://picsum.photos/seed/product8/400/400",
+      image: "https://picsum.photos/seed/product8/400/600",
       imageHint: "balloon arch"
     },
   ];
@@ -66,28 +66,28 @@ export default function Home() {
       name: "Fareeha Ismail",
       rating: 5,
       text: "Fantastic Birthday Backdrop! ★★★★★ Ordered the Frozen Elsa Birthday Backdrop for my daughter's party, and it was a game-changer! Easy setup, vibrant colors, and made for stunning photos. Highly recommended for an instant party.",
-      image: "https://picsum.photos/seed/testimonial-fareeha/150/150",
+      image: "https://picsum.photos/seed/testimonial-fareeha/300/400",
       imageHint: "woman portrait"
     },
     {
       name: "********667",
       rating: 5,
       text: "Thankyouuu Soo much ❤️❤️ Bht bht acha bnaya apne 😍😍 I love it ❤️",
-      image: "https://picsum.photos/seed/testimonial1/150/150",
+      image: "https://picsum.photos/seed/testimonial1/300/400",
       imageHint: "party decoration"
     },
     {
       name: "Kashif Ahmar",
       rating: 5,
       text: "Beautiful wedding backdrop! ★★★★★ It added a touch of elegance to our special day, and the quality exceeded our expectations. Highly recommend for anyone looking to enhance their wedding decor!",
-      image: "https://picsum.photos/seed/testimonial2/150/150",
+      image: "https://picsum.photos/seed/testimonial2/300/400",
       imageHint: "man portrait"
     },
     {
       name: "********",
       rating: 5,
       text: "Exceptional home decor products! ★★★★★ The attention to detail and quality are unmatched. Our space has been transformed, thanks to these stylish and well-crafted pieces. Highly satisfied with the purchase!",
-      image: "https://picsum.photos/seed/testimonial3/150/150",
+      image: "https://picsum.photos/seed/testimonial3/300/400",
       imageHint: "woman selfie"
     }
   ]
@@ -343,11 +343,11 @@ export default function Home() {
                   <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                     <div className="p-4 h-full">
                       <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gray-50 h-full border">
-                        <CardContent className="p-6 flex items-start gap-6">
-                          <div className="relative w-24 h-24 flex-shrink-0">
-                              <Image src={testimonial.image} alt={testimonial.name} fill className="rounded-md object-cover" data-ai-hint={testimonial.imageHint} />
+                        <CardContent className="p-0 flex items-start gap-6">
+                          <div className="relative w-40 h-full flex-shrink-0">
+                              <Image src={testimonial.image} alt={testimonial.name} fill className="object-cover" data-ai-hint={testimonial.imageHint} />
                           </div>
-                          <div className="flex flex-col">
+                          <div className="flex flex-col p-6">
                               <p className="text-gray-600 text-sm flex-grow">{testimonial.text}</p>
                               <p className="font-semibold text-right mt-4">{testimonial.name}</p>
                           </div>
