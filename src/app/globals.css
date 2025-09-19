@@ -74,7 +74,7 @@ body {
 
 @layer utilities {
   .thin-scrollbar::-webkit-scrollbar {
-    height: 4px;
+    height: 2px;
   }
   .thin-scrollbar::-webkit-scrollbar-track {
     background: hsl(var(--muted));

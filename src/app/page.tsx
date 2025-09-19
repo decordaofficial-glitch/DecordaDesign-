@@ -340,7 +340,7 @@ export default function Home() {
             >
               <CarouselContent>
                 {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={index} className="md:basis-1/2">
                     <div className="p-4 h-full">
                       <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gray-50 h-full border">
                         <CardContent className="p-0 flex items-start">
