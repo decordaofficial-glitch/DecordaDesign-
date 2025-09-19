@@ -397,17 +397,17 @@ export default function Home() {
                 </div>
                 <div className="grid md:grid-cols-2 gap-12 items-start">
                     <div>
-                        <h3 className="text-xl font-bold text-gray-800">Gulistan e Johar Branch</h3>
+                        <h3 className="text-xl font-bold text-primary">Gulistan e Johar Branch</h3>
                         <p className="mt-4 text-gray-600">Office: 9th Floor Building, Neighborhood Section 20, Gulistan e Johar, Near Toyota Showroom</p>
                         <p className="mt-2 text-gray-600">Karachi, Pakistan</p>
-                        <a href="#" className="text-primary mt-2 inline-flex items-center gap-1">Get directions <MapPin className="h-4 w-4" /></a>
+                        <a href="#" className="text-primary mt-2 inline-flex items-center gap-1 hover:underline">Get directions <MapPin className="h-4 w-4" /></a>
                         
-                        <h3 className="text-xl font-bold text-gray-800 mt-8">Open hours</h3>
+                        <h3 className="text-xl font-bold text-primary mt-8">Open hours</h3>
                         <p className="mt-2 text-gray-600">Always Open</p>
 
-                        <h3 className="text-xl font-bold text-gray-800 mt-8">Contact Info</h3>
-                        <p className="mt-2 text-gray-600">+92 319 2483064</p>
-                        <p className="mt-1 text-gray-600">decordaofficial@gmail.com</p>
+                        <h3 className="text-xl font-bold text-primary mt-8">Contact Info</h3>
+                        <a href="tel:+923192483064" className="mt-2 text-gray-600 block hover:text-primary transition-colors">+92 319 2483064</a>
+                        <a href="mailto:decordaofficial@gmail.com" className="mt-1 text-gray-600 block hover:text-primary transition-colors">decordaofficial@gmail.com</a>
 
                         <div className="flex gap-4 mt-4">
                           <a href="#" className="text-primary hover:text-primary/80"><Facebook className="h-6 w-6" /></a>
