@@ -316,7 +316,7 @@ export default function Home() {
                 <div key={index} className="flex-shrink-0 w-[400px]">
                   <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gray-50 h-full">
                     <CardContent className="p-6 flex items-center gap-6">
-                       <div className="relative w-32 h-32 shrink-0">
+                       <div className="relative w-32 h-32 flex-shrink-0">
                           <Image src={testimonial.image} alt={testimonial.name} fill className="rounded-md object-cover" data-ai-hint={testimonial.imageHint} />
                        </div>
                        <div className="flex flex-col">
