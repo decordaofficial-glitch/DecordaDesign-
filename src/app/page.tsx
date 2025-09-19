@@ -106,13 +106,13 @@ export default function Home() {
 
   return (
     <div className="bg-[#F8F8F8] text-gray-800">
-      <div className="bg-gray-800 text-white text-center py-2 text-sm">
+      <div className="bg-gray-800 text-white text-center py-3 text-sm">
         Free shipping for orders over Rs 999
       </div>
 
       <header className="border-b bg-white sticky top-0 z-50">
         <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between py-4">
+            <div className="flex items-center justify-between py-6">
                 <div className="flex items-center gap-8">
                     <Link href="/" className="flex flex-col -space-y-2 leading-none">
                       <div className="text-3xl font-bold">
