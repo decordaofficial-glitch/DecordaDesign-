@@ -63,6 +63,13 @@ export default function Home() {
 
   const testimonials = [
     {
+      name: "Fareeha Ismail",
+      rating: 5,
+      text: "Fantastic Birthday Backdrop! ★★★★★ Ordered the Frozen Elsa Birthday Backdrop for my daughter's party, and it was a game-changer! Easy setup, vibrant colors, and made for stunning photos. Highly recommended for an instant party.",
+      image: "https://picsum.photos/seed/testimonial-fareeha/150/150",
+      imageHint: "woman portrait"
+    },
+    {
       name: "********667",
       rating: 5,
       text: "Thankyouuu Soo much ❤️❤️ Bht bht acha bnaya apne 😍😍 I love it ❤️",
@@ -141,7 +148,7 @@ export default function Home() {
 
   return (
     <div className="bg-[#F8F8F8] text-gray-800">
-      <div className="bg-gray-800 text-white text-center py-4 text-sm">
+      <div className="bg-gray-800 text-white text-center py-4 text-sm font-medium">
         Free shipping for orders over Rs 999
       </div>
 
@@ -237,7 +244,7 @@ export default function Home() {
               {products.map((product, index) => (
                 <Card key={index} className="overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                   <CardContent className="p-0">
-                    <div className="relative h-80 w-full">
+                    <div className="relative h-96 w-full">
                        <Image src={product.image} alt={product.name} fill className="object-cover" data-ai-hint={product.imageHint} />
                     </div>
                     <div className="p-6 text-center">
@@ -304,19 +311,21 @@ export default function Home() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-10 text-primary">Why Clients Love Us</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="flex overflow-x-auto space-x-8 pb-4">
               {testimonials.map((testimonial, index) => (
-                <Card key={index} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gray-50">
-                  <CardContent className="p-6 flex gap-4">
-                     <div className="relative w-1/3">
-                        <Image src={testimonial.image} alt={testimonial.name} fill className="rounded-md object-cover" data-ai-hint={testimonial.imageHint} />
-                     </div>
-                     <div className="w-2/3 flex flex-col">
-                        <p className="text-gray-600 text-sm flex-grow">{testimonial.text}</p>
-                        <p className="font-semibold text-right mt-4">{testimonial.name}</p>
-                     </div>
-                  </CardContent>
-                </Card>
+                <div key={index} className="flex-shrink-0 w-[400px]">
+                  <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gray-50 h-full">
+                    <CardContent className="p-6 flex gap-4">
+                       <div className="relative w-1/3">
+                          <Image src={testimonial.image} alt={testimonial.name} fill className="rounded-md object-cover" data-ai-hint={testimonial.imageHint} />
+                       </div>
+                       <div className="w-2/3 flex flex-col">
+                          <p className="text-gray-600 text-sm flex-grow">{testimonial.text}</p>
+                          <p className="font-semibold text-right mt-4">{testimonial.name}</p>
+                       </div>
+                    </CardContent>
+                  </Card>
+                </div>
               ))}
             </div>
           </div>
