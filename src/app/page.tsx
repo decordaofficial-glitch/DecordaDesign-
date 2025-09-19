@@ -114,8 +114,11 @@ export default function Home() {
         <div className="container mx-auto px-4">
             <div className="flex items-center justify-between py-4">
                 <div className="flex items-center gap-8">
-                    <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-gray-900">
-                      <Image src="https://picsum.photos/seed/logo/150/40" width={150} height={40} alt="Decorda Design" data-ai-hint="logo" />
+                    <Link href="/" className="flex flex-col -space-y-2 leading-none">
+                      <div className="text-3xl font-bold">
+                        <span className="text-gray-900">DECOR</span><span className="text-red-600">DA</span>
+                      </div>
+                      <span className="text-sm tracking-[0.18em] text-gray-700">DESIGN</span>
                     </Link>
                 </div>
                 <nav className="hidden md:flex items-center justify-center flex-1 gap-6 text-sm text-gray-600">
