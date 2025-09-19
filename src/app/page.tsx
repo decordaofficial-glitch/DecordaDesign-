@@ -63,25 +63,25 @@ export default function Home() {
 
   const testimonials = [
     {
-      name: "Fareeha Sohail",
+      name: "********667",
       rating: 5,
-      text: "Romantic birthday backdrops ***** Ordered this from the house to helix Birthday. backdrop for my elder sister's party, and it was a game-changer! long-lasting, vibrant colors, and well-made for stunning photos. Highly recommended for an instant party.",
-      image: "https://picsum.photos/seed/avatar1/150/150",
-      imageHint: "woman portrait"
+      text: "Thankyouuu Soo much ❤️❤️ Bht bht acha bnaya apne 😍😍 I love it ❤️",
+      image: "https://picsum.photos/seed/testimonial1/150/150",
+      imageHint: "party decoration"
     },
     {
-      name: "Anonymous",
+      name: "Kashif Ahmar",
       rating: 5,
-      text: "Thankyou so Much ❤️❤️ bohat acha bhaiya plan 😍😍 I love it ❤️",
+      text: "Beautiful wedding backdrop! ★★★★★ It added a touch of elegance to our special day, and the quality exceeded our expectations. Highly recommend for anyone looking to enhance their wedding decor!",
       image: "https://picsum.photos/seed/testimonial2/150/150",
-      imageHint: "event balloons"
+      imageHint: "man portrait"
     },
     {
-      name: "Anonymous",
+      name: "********",
       rating: 5,
-      text: "",
-      image: "https://picsum.photos/seed/avatar3/150/150",
-      imageHint: "man portrait"
+      text: "Exceptional home decor products! ★★★★★ The attention to detail and quality are unmatched. Our space has been transformed, thanks to these stylish and well-crafted pieces. Highly satisfied with the purchase!",
+      image: "https://picsum.photos/seed/testimonial3/150/150",
+      imageHint: "woman selfie"
     }
   ]
 
@@ -131,17 +131,10 @@ export default function Home() {
       return
     }
  
-    setCurrent(api.selectedScrollSnap())
- 
-    const onSelect = (api: CarouselApi) => {
+    api.on("select", () => {
       setCurrent(api.selectedScrollSnap())
-    }
+    })
  
-    api.on("select", onSelect)
- 
-    return () => {
-      api.off("select", onSelect)
-    }
   }, [api])
   
   const navLinkClasses = "relative text-gray-600 after:absolute after:left-1/2 after:right-1/2 after:bottom-0 after:h-[1.5px] after:bg-primary after:transition-all after:duration-300 hover:text-primary hover:after:left-0 hover:after:right-0";
@@ -313,18 +306,15 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-center mb-10 text-primary">Why Clients Love Us</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
-                <Card key={index} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-4">
-                       <Image src={testimonial.image} alt={testimonial.name} width={80} height={80} className="rounded-full object-cover" data-ai-hint={testimonial.imageHint} />
-                       <div>
-                         <p className="font-semibold">{testimonial.name}</p>
-                         <div className="flex text-yellow-500">
-                           {[...Array(testimonial.rating)].map((_, i) => <span key={i}>★</span>)}
-                         </div>
-                       </div>
-                    </div>
-                    <p className="text-gray-600 mt-4 text-sm">{testimonial.text}</p>
+                <Card key={index} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gray-50">
+                  <CardContent className="p-6 flex gap-4">
+                     <div className="relative w-1/3">
+                        <Image src={testimonial.image} alt={testimonial.name} fill className="rounded-md object-cover" data-ai-hint={testimonial.imageHint} />
+                     </div>
+                     <div className="w-2/3 flex flex-col">
+                        <p className="text-gray-600 text-sm flex-grow">{testimonial.text}</p>
+                        <p className="font-semibold text-right mt-4">{testimonial.name}</p>
+                     </div>
                   </CardContent>
                 </Card>
               ))}
