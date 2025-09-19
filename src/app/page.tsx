@@ -1,4 +1,3 @@
-
 "use client";
 import Image from "next/image";
 import { Search, ShoppingCart, ShieldCheck, CircleDollarSign, Truck, Undo2, MapPin, Facebook, Instagram } from "lucide-react";
@@ -101,7 +100,7 @@ export default function Home() {
   ]
   
   const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
+    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
   
   const navLinkClasses = "relative text-gray-600 after:absolute after:left-1/2 after:right-1/2 after:bottom-0 after:h-[1.5px] after:bg-primary after:transition-all after:duration-300 hover:text-primary hover:after:left-0 hover:after:right-0";
@@ -134,7 +133,7 @@ export default function Home() {
                     <Link href="#" className={navLinkClasses}>Contact Us</Link>
                 </nav>
                 <div className="flex items-center gap-4">
-                    <Button variant="outline" className="hidden md:inline-flex bg-white text-black hover:bg-gray-800 hover:text-white border-black">Shop Now</Button>
+                    <Button variant="outline" className="hidden md:inline-flex bg-black text-white hover:bg-gray-700 border-black">Shop Now</Button>
                     <div className="flex items-center gap-4">
                       <Search className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
                       <ShoppingCart className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
@@ -150,12 +149,10 @@ export default function Home() {
             opts={{ loop: true }}
             plugins={[plugin.current]}
             className="w-full"
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
           >
             <CarouselContent>
               {heroSlides.map((slide, index) => (
-                <CarouselItem key={index}>
+                <CarouselItem key={index} className="group/slide">
                   <div className="relative h-[600px] w-full">
                     <Image
                       src={slide.image}
@@ -165,10 +162,12 @@ export default function Home() {
                       data-ai-hint={slide.imageHint}
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                      <div className="text-center text-white">
-                        <h1 className="text-5xl md:text-7xl font-bold">{slide.title}</h1>
-                        <p className="mt-4 text-lg">{slide.subtitle}</p>
-                        <Button className="mt-8">Shop Now</Button>
+                      <div className="text-center text-white overflow-hidden">
+                        <h1 className="text-5xl md:text-7xl font-bold transition-all duration-700 translate-y-full opacity-0 group-data-[active=true]:translate-y-0 group-data-[active=true]:opacity-100">{slide.title}</h1>
+                        <p className="mt-4 text-lg transition-all duration-700 delay-200 translate-y-full opacity-0 group-data-[active=true]:translate-y-0 group-data-[active=true]:opacity-100">{slide.subtitle}</p>
+                        <div className="transition-all duration-700 delay-300 translate-y-full opacity-0 group-data-[active=true]:translate-y-0 group-data-[active=true]:opacity-100">
+                          <Button className="mt-8 bg-black hover:bg-gray-700">Shop Now</Button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -194,7 +193,7 @@ export default function Home() {
                       <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
                       <p className="text-gray-600 mt-2">Starting From:</p>
                       <p className="text-xl font-bold text-primary mt-1">{product.price}</p>
-                      <Button className="mt-6">Buy Now</Button>
+                      <Button className="mt-6 bg-black hover:bg-gray-700">Buy Now</Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -242,7 +241,7 @@ export default function Home() {
                     <div>
                         <h2 className="text-4xl font-bold text-primary">Know More About Decorda</h2>
                         <p className="mt-4 text-gray-600">Welcome to Decorda Design, your one-stop destination for all your event supplies and home decor needs! At Decorda, we blend creativity with quality to transform your special occasions and living spaces into unforgettable experiences. From elegant event supplies that set the perfect ambiance to stylish home decor pieces that reflect your unique taste, Decorda Design is your partner in turning dreams into reality. Discover a world of curated designs and impeccable craftsmanship—where every detail matters. Elevate your events and homes with Decorda Design, where style meets substance.</p>
-                        <Button className="mt-6">Learn More</Button>
+                        <Button className="mt-6 bg-black hover:bg-gray-700">Learn More</Button>
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden flex items-center justify-center bg-black">
                         <Image src="https://picsum.photos/seed/decordalogo/400/300" alt="Decorda Logo" width={300} height={225} className="object-contain" data-ai-hint="company logo" />
@@ -287,7 +286,7 @@ export default function Home() {
                 <div className="text-center text-white">
                     <h2 className="text-5xl md:text-6xl font-bold">Sale up to 20% Off</h2>
                     <p className="mt-4 text-lg">Find the perfect match for your event decor in a reasonable price</p>
-                    <Button className="mt-8">Shop Now</Button>
+                    <Button className="mt-8 bg-black hover:bg-gray-700">Shop Now</Button>
                 </div>
             </div>
         </section>
