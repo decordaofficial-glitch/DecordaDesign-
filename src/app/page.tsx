@@ -179,11 +179,11 @@ export default function Home() {
                     <Link href="#" className={navLinkClasses}>Contact Us</Link>
                 </nav>
                 <div className="flex items-center gap-4">
-                    <Button variant="outline" className="hidden md:inline-flex bg-black text-white hover:bg-gray-700 border-black">Shop Now</Button>
+                    <Button variant="outline" className="hidden md:inline-flex bg-black text-white hover:bg-gray-700 border-black transition-colors">Shop Now</Button>
                     <div className="flex items-center gap-4">
-                      <Search className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
+                      <Search className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary transition-colors" />
                       <Link href="/cart">
-                        <ShoppingCart className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
+                        <ShoppingCart className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary transition-colors" />
                       </Link>
                     </div>
                 </div>
@@ -192,7 +192,7 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="relative">
+        <section className="relative group">
           <Carousel
             setApi={setApi}
             opts={{ loop: true }}
@@ -208,12 +208,12 @@ export default function Home() {
             <CarouselContent>
               {heroSlides.map((slide, index) => (
                 <CarouselItem key={index}>
-                  <div className="relative h-[600px] w-full">
+                  <div className="relative h-[600px] w-full overflow-hidden">
                     <Image
                       src={slide.image}
                       alt={slide.title}
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                       data-ai-hint={slide.imageHint}
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
@@ -243,7 +243,7 @@ export default function Home() {
                             }}
                             className="transition-all duration-700 ease-out delay-300"
                           >
-                            <Button className="mt-8 bg-black hover:bg-gray-700">Shop Now</Button>
+                            <Button className="mt-8 bg-black hover:bg-gray-700 transition-colors">Shop Now</Button>
                           </div>
                       </div>
                     </div>
@@ -251,8 +251,8 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-transparent border-2 border-white hover:bg-white/20 hover:text-white" />
-            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-transparent border-2 border-white hover:bg-white/20 hover:text-white" />
+            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-transparent border-2 border-white hover:bg-white/20 hover:text-white transition-all" />
+            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-transparent border-2 border-white hover:bg-white/20 hover:text-white transition-all" />
           </Carousel>
         </section>
 
@@ -270,7 +270,7 @@ export default function Home() {
                       <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
                       <p className="text-gray-600 mt-2">Starting From:</p>
                       <p className="text-xl font-bold text-primary mt-1">{product.price}</p>
-                      <Button className="mt-6 bg-black hover:bg-gray-700">Buy Now</Button>
+                      <Button className="mt-6 bg-black hover:bg-gray-700 transition-colors">Buy Now</Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -288,8 +288,8 @@ export default function Home() {
                         <p className="mt-4 text-gray-600">At Decorda Design, we believe that every event is an opportunity to create magic and lasting memories. Our curated selection of event decorations is designed to transform any space into a captivating and visually stunning setting.</p>
                         <p className="mt-4 text-gray-600">From enchanting weddings to lively birthday celebrations, our decorations are crafted with precision and creativity, ensuring that each detail contributes to the overall ambiance of your event. Whether you envision a romantic and timeless atmosphere or a modern and vibrant vibe, Decorda Design has the perfect pieces to bring your vision to life.</p>
                     </div>
-                    <div className="relative h-[600px] rounded-lg overflow-hidden shadow-xl">
-                        <Image src="https://picsum.photos/seed/memories/600/700" alt="Decorate Your Memories" fill className="object-cover" data-ai-hint="event decoration" />
+                    <div className="relative h-[600px] rounded-lg overflow-hidden shadow-xl group">
+                        <Image src="https://picsum.photos/seed/memories/600/700" alt="Decorate Your Memories" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="event decoration" />
                     </div>
                 </div>
             </div>
@@ -298,8 +298,8 @@ export default function Home() {
         <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="relative h-[600px] rounded-lg overflow-hidden shadow-xl order-last md:order-first">
-                        <Image src="https://picsum.photos/seed/livings/800/600" alt="Decorate Your Livings" fill className="object-cover" data-ai-hint="modern living room" />
+                    <div className="relative h-[600px] rounded-lg overflow-hidden shadow-xl order-last md:order-first group">
+                        <Image src="https://picsum.photos/seed/livings/800/600" alt="Decorate Your Livings" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="modern living room" />
                     </div>
                     <div className="md:pl-8">
                         <h2 className="text-4xl font-bold font-display text-gray-800">We Decor Your Livings</h2>
@@ -318,10 +318,10 @@ export default function Home() {
                     <div>
                         <h2 className="text-4xl font-bold font-display text-primary">Know More About Decorda</h2>
                         <p className="mt-4 text-gray-600">Welcome to Decorda Design, your one-stop destination for all your event supplies and home decor needs! At Decorda, we blend creativity with quality to transform your special occasions and living spaces into unforgettable experiences. From elegant event supplies that set the perfect ambiance to stylish home decor pieces that reflect your unique taste, Decorda Design is your partner in turning dreams into reality. Discover a world of curated designs and impeccable craftsmanship—where every detail matters. Elevate your events and homes with Decorda Design, where style meets substance.</p>
-                        <Button className="mt-6 bg-black hover:bg-gray-700">Learn More</Button>
+                        <Button className="mt-6 bg-black hover:bg-gray-700 transition-colors">Learn More</Button>
                     </div>
-                    <div className="relative h-[400px] rounded-lg overflow-hidden">
-                        <Image src="https://picsum.photos/seed/decordalogo/800/400" alt="Decorda Logo" fill className="object-cover" data-ai-hint="company logo abstract" />
+                    <div className="relative h-[400px] rounded-lg overflow-hidden group">
+                        <Image src="https://picsum.photos/seed/decordalogo/800/400" alt="Decorda Logo" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="company logo abstract" />
                     </div>
                 </div>
             </div>
@@ -334,10 +334,10 @@ export default function Home() {
               <div className="flex gap-8">
                 {testimonials.map((testimonial, index) => (
                     <div key={index} className="w-[600px] flex-shrink-0">
-                      <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white h-full border">
+                      <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-white h-full border group">
                         <CardContent className="p-0 flex items-start">
-                          <div className="relative w-48 h-[250px] flex-shrink-0">
-                              <Image src={testimonial.image} alt={testimonial.name} fill className="object-cover" data-ai-hint={testimonial.imageHint} />
+                          <div className="relative w-48 h-[250px] flex-shrink-0 overflow-hidden">
+                              <Image src={testimonial.image} alt={testimonial.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint={testimonial.imageHint} />
                           </div>
                           <div className="flex flex-col p-6">
                               <h3 className="font-semibold text-lg">{testimonial.title}</h3>
@@ -353,19 +353,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="relative h-[400px] w-full my-16">
+        <section className="relative h-[400px] w-full my-16 group">
             <Image
                 src="https://picsum.photos/seed/sale-banner/1920/400"
                 alt="Sale banner"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 data-ai-hint="modern living room"
             />
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                 <div className="text-center text-white">
                     <h2 className="text-5xl md:text-6xl font-bold font-display">Sale up to 20% Off</h2>
                     <p className="mt-4 text-lg">Find the perfect match for your event decor in a reasonable price</p>
-                    <Button className="mt-8 bg-black hover:bg-gray-700">Shop Now</Button>
+                    <Button className="mt-8 bg-black hover:bg-gray-700 transition-colors">Shop Now</Button>
                 </div>
             </div>
         </section>
@@ -394,8 +394,8 @@ export default function Home() {
         <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-4">
                 <h2 className="text-4xl font-bold font-display text-center mb-10 text-primary">Contact Us</h2>
-                <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl mb-12">
-                    <Image src="https://picsum.photos/seed/contact-hero/1200/400" alt="Contact Us" fill className="object-cover" data-ai-hint="office building" />
+                <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl mb-12 group">
+                    <Image src="https://picsum.photos/seed/contact-hero/1200/400" alt="Contact Us" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="office building" />
                 </div>
                 <div className="grid md:grid-cols-2 gap-12 items-start">
                     <div>
@@ -412,8 +412,8 @@ export default function Home() {
                         <a href="mailto:decordaofficial@gmail.com" className="mt-1 text-muted-foreground block hover:text-primary transition-colors">decordaofficial@gmail.com</a>
 
                         <div className="flex gap-4 mt-4">
-                          <a href="#" className="text-primary hover:text-primary/80"><Facebook className="h-6 w-6" /></a>
-                          <a href="#" className="text-primary hover:text-primary/80"><Instagram className="h-6 w-6" /></a>
+                          <a href="#" className="text-primary hover:text-primary/80 transition-colors"><Facebook className="h-6 w-6" /></a>
+                          <a href="#" className="text-primary hover:text-primary/80 transition-colors"><Instagram className="h-6 w-6" /></a>
                         </div>
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
@@ -446,8 +446,8 @@ export default function Home() {
               </Link>
               <p className="mt-4 text-gray-400 text-sm">Elevate your events and homes with Decorda Design, where style meets substance.</p>
               <div className="flex gap-4 mt-6">
-                <a href="#" className="text-gray-400 hover:text-white"><Facebook className="h-6 w-6" /></a>
-                <a href="#" className="text-gray-400 hover:text-white"><Instagram className="h-6 w-6" /></a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors"><Facebook className="h-6 w-6" /></a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors"><Instagram className="h-6 w-6" /></a>
               </div>
             </div>
             <div>
