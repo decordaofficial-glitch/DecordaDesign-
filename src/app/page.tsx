@@ -182,7 +182,9 @@ export default function Home() {
                     <Button variant="outline" className="hidden md:inline-flex bg-black text-white hover:bg-gray-700 border-black">Shop Now</Button>
                     <div className="flex items-center gap-4">
                       <Search className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
-                      <ShoppingCart className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
+                      <Link href="/cart">
+                        <ShoppingCart className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
+                      </Link>
                     </div>
                 </div>
             </div>
@@ -331,10 +333,10 @@ export default function Home() {
             <div className="flex overflow-x-auto thin-scrollbar pb-4 -mb-4">
               <div className="flex gap-8">
                 {testimonials.map((testimonial, index) => (
-                    <div key={index} className="w-[500px] flex-shrink-0">
+                    <div key={index} className="w-[600px] flex-shrink-0">
                       <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white h-full border">
                         <CardContent className="p-0 flex items-start">
-                          <div className="relative w-40 h-[220px] flex-shrink-0">
+                          <div className="relative w-48 h-[250px] flex-shrink-0">
                               <Image src={testimonial.image} alt={testimonial.name} fill className="object-cover" data-ai-hint={testimonial.imageHint} />
                           </div>
                           <div className="flex flex-col p-6">
@@ -398,16 +400,16 @@ export default function Home() {
                 <div className="grid md:grid-cols-2 gap-12 items-start">
                     <div>
                         <h3 className="text-xl font-bold font-display text-primary">Gulistan e Johar Branch</h3>
-                        <p className="mt-4 text-gray-600">Office: 9th Floor Building, Neighborhood Section 20, Gulistan e Johar, Near Toyota Showroom</p>
-                        <p className="mt-2 text-gray-600">Karachi, Pakistan</p>
+                        <p className="mt-4 text-muted-foreground">Office: 9th Floor Building, Neighborhood Section 20, Gulistan e Johar, Near Toyota Showroom</p>
+                        <p className="mt-2 text-muted-foreground">Karachi, Pakistan</p>
                         <a href="#" className="text-primary mt-2 inline-flex items-center gap-1 hover:underline">Get directions <MapPin className="h-4 w-4" /></a>
                         
                         <h3 className="text-xl font-bold font-display text-primary mt-8">Open hours</h3>
-                        <p className="mt-2 text-gray-600">Always Open</p>
+                        <p className="mt-2 text-muted-foreground">Always Open</p>
 
                         <h3 className="text-xl font-bold font-display text-primary mt-8">Contact Info</h3>
-                        <a href="tel:+923192483064" className="mt-2 text-gray-600 block hover:text-primary transition-colors">+92 319 2483064</a>
-                        <a href="mailto:decordaofficial@gmail.com" className="mt-1 text-gray-600 block hover:text-primary transition-colors">decordaofficial@gmail.com</a>
+                        <a href="tel:+923192483064" className="mt-2 text-muted-foreground block hover:text-primary transition-colors">+92 319 2483064</a>
+                        <a href="mailto:decordaofficial@gmail.com" className="mt-1 text-muted-foreground block hover:text-primary transition-colors">decordaofficial@gmail.com</a>
 
                         <div className="flex gap-4 mt-4">
                           <a href="#" className="text-primary hover:text-primary/80"><Facebook className="h-6 w-6" /></a>
