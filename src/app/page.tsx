@@ -389,13 +389,16 @@ export default function Home() {
             </div>
         </section>
 
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-4">
                 <h2 className="text-4xl font-bold text-center mb-10 text-primary">Contact Us</h2>
+                <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl mb-12">
+                    <Image src="https://picsum.photos/seed/contact-hero/1200/400" alt="Contact Us" fill className="object-cover" data-ai-hint="office building" />
+                </div>
                 <div className="grid md:grid-cols-2 gap-12 items-start">
                     <div>
                         <h3 className="text-xl font-bold text-gray-800">Gulistan e Johar Branch</h3>
-                        <p className="mt-4 text-gray-600">Office 901, 9th Floor, Rose Building, Neighborhood Section 20, Gulistan e Johar, Near Toyota Showroom</p>
+                        <p className="mt-4 text-gray-600">Office: 9th Floor Building, Neighborhood Section 20, Gulistan e Johar, Near Toyota Showroom</p>
                         <p className="mt-2 text-gray-600">Karachi, Pakistan</p>
                         <a href="#" className="text-primary mt-2 inline-flex items-center gap-1">Get directions <MapPin className="h-4 w-4" /></a>
                         
@@ -404,7 +407,7 @@ export default function Home() {
 
                         <h3 className="text-xl font-bold text-gray-800 mt-8">Contact Info</h3>
                         <p className="mt-2 text-gray-600">+92 319 2483064</p>
-                        <p className="mt-1 text-gray-600">decordesign@gmail.com</p>
+                        <p className="mt-1 text-gray-600">decordaofficial@gmail.com</p>
 
                         <div className="flex gap-4 mt-4">
                           <a href="#" className="text-primary hover:text-primary/80"><Facebook className="h-6 w-6" /></a>
