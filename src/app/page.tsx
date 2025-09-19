@@ -323,7 +323,7 @@ export default function Home() {
         
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-10 text-primary">Why Clients Love Us</h2>
+            <h2 className="text-4xl font-bold text-left mb-10 text-primary">Why Clients Love Us</h2>
             <Carousel
               opts={{
                 align: "start",
