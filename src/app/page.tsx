@@ -138,6 +138,7 @@ export default function Home() {
       return
     }
  
+    setCurrent(api.scrollSnapList().length)
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap())
     })
@@ -212,17 +213,29 @@ export default function Home() {
                     <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                       <div className="text-center text-white overflow-hidden">
                           <h1
-                            className={`text-5xl md:text-7xl font-bold transition-all duration-700 ease-out ${current === index ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+                            style={{
+                              transform: current === index ? 'translateY(0)' : 'translateY(4rem)',
+                              opacity: current === index ? 1 : 0,
+                            }}
+                            className="text-5xl md:text-7xl font-bold transition-all duration-700 ease-out"
                           >
                             {slide.title}
                           </h1>
                           <p
-                            className={`mt-4 text-lg transition-all duration-700 ease-out delay-200 ${current === index ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+                            style={{
+                              transform: current === index ? 'translateY(0)' : 'translateY(4rem)',
+                              opacity: current === index ? 1 : 0,
+                            }}
+                            className="mt-4 text-lg transition-all duration-700 ease-out delay-200"
                           >
                             {slide.subtitle}
                           </p>
                           <div
-                            className={`transition-all duration-700 ease-out delay-300 ${current === index ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+                            style={{
+                              transform: current === index ? 'translateY(0)' : 'translateY(4rem)',
+                              opacity: current === index ? 1 : 0,
+                            }}
+                            className="transition-all duration-700 ease-out delay-300"
                           >
                             <Button className="mt-8 bg-black hover:bg-gray-700">Shop Now</Button>
                           </div>
@@ -242,10 +255,10 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-center mb-10 text-primary">Featured Products</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
               {products.map((product, index) => (
-                <Card key={index} className="overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <Card key={index} className="overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
                   <CardContent className="p-0">
                     <div className="relative h-96 w-full">
-                       <Image src={product.image} alt={product.name} fill className="object-cover" data-ai-hint={product.imageHint} />
+                       <Image src={product.image} alt={product.name} fill className="object-cover transition-transform duration-300 group-hover:scale-105" data-ai-hint={product.imageHint} />
                     </div>
                     <div className="p-6 text-center">
                       <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
@@ -287,7 +300,7 @@ export default function Home() {
                         <p className="text-lg font-semibold text-gray-600 mt-2">Transform Your Space with Timeless Elegance: Decorda Design Home Decor</p>
                         <p className="mt-4 text-gray-600">Your home is a reflection of your style and personality, and at Decorda Design, we're here to help you curate a space that speaks to you. Our collection of home decorations is a celebration of sophistication and creativity, designed to elevate every corner of your living space.</p>
                         <p className="mt-4 text-gray-600">Discover a range of chic and timeless pieces, from eye-catching wall art to stylish accent pieces that effortlessly enhance your home's aesthetic. Whether you prefer a modern, minimalist vibe or a classic, traditional feel, Decorda Design has the perfect decor to complement your taste.</p>
-                        <p className="mt-4 text-gray-600">Quality craftsmanship is our hallmark. Each home decoration is meticulously crafted using premium materials, ensuring durability and a touch of luxury. Our curated selection includes a variety of styles and themes, allowing you to infuse your unique personality into every room.</p>
+                        <p className="mt-4 text-gray-600">Quality craftsmanship is our hallmark. Each home decoration is meticulously crafted using premium materials, a-ai-hint="company logo abstract" ensuring durability and a touch of luxury. Our curated selection includes a variety of styles and themes, allowing you to infuse your unique personality into every room.</p>
                     </div>
                 </div>
             </div>
@@ -302,7 +315,7 @@ export default function Home() {
                         <Button className="mt-6 bg-black hover:bg-gray-700">Learn More</Button>
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
-                        <Image src="https://picsum.photos/seed/decordalogo/800/600" alt="Decorda Logo" fill className="object-cover" data-ai-hint="company logo abstract" />
+                        <Image src="https://picsum.photos/seed/decordalogo/800/400" alt="Decorda Logo" fill className="object-cover" data-ai-hint="company logo abstract" />
                     </div>
                 </div>
             </div>
@@ -311,23 +324,42 @@ export default function Home() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-10 text-primary">Why Clients Love Us</h2>
-            <div className="flex overflow-x-auto space-x-8 pb-4 thin-scrollbar">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="flex-shrink-0 w-[400px]">
-                  <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gray-50 h-full">
-                    <CardContent className="p-6 flex items-center gap-6">
-                       <div className="relative w-32 h-32 flex-shrink-0">
-                          <Image src={testimonial.image} alt={testimonial.name} fill className="rounded-md object-cover" data-ai-hint={testimonial.imageHint} />
-                       </div>
-                       <div className="flex flex-col">
-                          <p className="text-gray-600 text-sm flex-grow">{testimonial.text}</p>
-                          <p className="font-semibold text-right mt-4">{testimonial.name}</p>
-                       </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-            </div>
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              plugins={[
+                Autoplay({
+                  delay: 5000,
+                  stopOnInteraction: false,
+                  stopOnMouseEnter: true,
+                }),
+              ]}
+              className="w-full"
+            >
+              <CarouselContent>
+                {testimonials.map((testimonial, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-4 h-full">
+                      <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gray-50 h-full border">
+                        <CardContent className="p-6 flex items-start gap-6">
+                          <div className="relative w-24 h-24 flex-shrink-0">
+                              <Image src={testimonial.image} alt={testimonial.name} fill className="rounded-md object-cover" data-ai-hint={testimonial.imageHint} />
+                          </div>
+                          <div className="flex flex-col">
+                              <p className="text-gray-600 text-sm flex-grow">{testimonial.text}</p>
+                              <p className="font-semibold text-right mt-4">{testimonial.name}</p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex" />
+              <CarouselNext className="hidden md:flex" />
+            </Carousel>
           </div>
         </section>
 
