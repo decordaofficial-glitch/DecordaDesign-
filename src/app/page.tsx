@@ -315,11 +315,11 @@ export default function Home() {
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="flex-shrink-0 w-[400px]">
                   <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gray-50 h-full">
-                    <CardContent className="p-6 flex gap-4">
-                       <div className="relative w-1/3">
+                    <CardContent className="p-6 flex items-center gap-6">
+                       <div className="relative w-32 h-32 shrink-0">
                           <Image src={testimonial.image} alt={testimonial.name} fill className="rounded-md object-cover" data-ai-hint={testimonial.imageHint} />
                        </div>
-                       <div className="w-2/3 flex flex-col">
+                       <div className="flex flex-col">
                           <p className="text-gray-600 text-sm flex-grow">{testimonial.text}</p>
                           <p className="font-semibold text-right mt-4">{testimonial.name}</p>
                        </div>
