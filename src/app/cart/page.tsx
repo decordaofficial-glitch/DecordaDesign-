@@ -51,13 +51,13 @@ export default function CartPage() {
             </div>
         </div>
       </header>
-      <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold font-display text-center mb-10 text-primary">Shopping Cart</h1>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="container mx-auto px-4 py-8 md:py-12">
+        <h1 className="text-3xl md:text-4xl font-bold font-display text-center mb-8 md:mb-10 text-primary">Shopping Cart</h1>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
           <div className="lg:col-span-2 space-y-6">
             {cartItems.map((item) => (
-              <div key={item.id} className="flex items-center gap-6 bg-gray-50 p-4 rounded-lg shadow-sm">
-                <div className="relative w-28 h-28 rounded-md overflow-hidden">
+              <div key={item.id} className="flex flex-col md:flex-row items-center gap-4 md:gap-6 bg-gray-50 p-4 rounded-lg shadow-sm">
+                <div className="relative w-full h-48 md:w-28 md:h-28 rounded-md overflow-hidden flex-shrink-0">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -66,7 +66,7 @@ export default function CartPage() {
                     data-ai-hint={item.imageHint}
                   />
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 w-full text-center md:text-left">
                   <h2 className="text-lg font-semibold font-display">{item.name}</h2>
                   <p className="text-primary font-bold mt-1">
                     {item.price.toFixed(2)}Rs
@@ -86,12 +86,14 @@ export default function CartPage() {
                     <Plus className="h-4 w-4" />
                   </Button>
                 </div>
-                <p className="font-bold w-24 text-right">
+                <p className="font-bold w-full md:w-24 text-center md:text-right text-lg md:text-base">
                   {(item.price * item.quantity).toFixed(2)}Rs
                 </p>
-                <Button variant="ghost" size="icon" className="text-gray-500 hover:text-red-600">
-                  <Trash2 className="h-5 w-5" />
-                </Button>
+                <div className="flex justify-end w-full md:w-auto">
+                    <Button variant="ghost" size="icon" className="text-gray-500 hover:text-red-600">
+                    <Trash2 className="h-5 w-5" />
+                    </Button>
+                </div>
               </div>
             ))}
              <div className="text-center mt-8">
@@ -100,7 +102,7 @@ export default function CartPage() {
               </Link>
             </div>
           </div>
-          <div className="bg-gray-50 p-8 rounded-lg shadow-md h-fit">
+          <div className="bg-gray-50 p-6 md:p-8 rounded-lg shadow-md h-fit">
             <h2 className="text-2xl font-bold font-display text-primary mb-6">Order Summary</h2>
             <div className="space-y-4">
               <div className="flex justify-between">
