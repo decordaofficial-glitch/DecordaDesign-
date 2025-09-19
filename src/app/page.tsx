@@ -1,11 +1,12 @@
 
 "use client";
 import Image from "next/image";
-import { Search, User, ShoppingCart, ChevronLeft, ChevronRight, ShieldCheck, CircleDollarSign, Truck, Undo2, MapPin, Facebook, Instagram } from "lucide-react";
+import { Search, User, ShoppingCart, ShieldCheck, CircleDollarSign, Truck, Undo2, MapPin, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Link from 'next/link';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 export default function Home() {
   const products = [
@@ -82,6 +83,21 @@ export default function Home() {
     },
   ]
 
+  const heroSlides = [
+    {
+      title: "Event's Backdrops",
+      subtitle: "Create unforgettable moments with our stunning event backdrops.",
+      image: "https://picsum.photos/seed/hero-backdrop/1920/600",
+      imageHint: "event backdrop"
+    },
+    {
+      title: "Stunning Home Decor",
+      subtitle: "Transform your living space with our elegant home decor pieces.",
+      image: "https://picsum.photos/seed/hero-decor/1920/600",
+      imageHint: "modern living room"
+    }
+  ]
+
   return (
     <div className="bg-[#F8F8F8] text-gray-800">
       <div className="bg-gray-800 text-white text-center py-2 text-sm">
@@ -118,32 +134,37 @@ export default function Home() {
       </header>
 
       <main>
-        <div className="relative h-[600px] w-full">
-            <Image
-                src="https://picsum.photos/seed/hero-backdrop/1920/600"
-                alt="Events Backdrop"
-                fill
-                className="object-cover"
-                data-ai-hint="event backdrop"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                <div className="text-center text-white">
-                    <h1 className="text-5xl md:text-7xl font-bold">Event's Backdrops</h1>
-                    <p className="mt-4 text-lg">Create unforgettable moments with our stunning event backdrops.</p>
-                    <Button variant="secondary" className="mt-8 bg-white text-black hover:bg-gray-200">Shop Now</Button>
-                </div>
-            </div>
-            <div className="absolute left-4 top-1/2 -translate-y-1/2">
-                <Button variant="ghost" size="icon" className="text-white hover:bg-white/20">
-                    <ChevronLeft className="h-8 w-8" />
-                </Button>
-            </div>
-            <div className="absolute right-4 top-1/2 -translate-y-1/2">
-                <Button variant="ghost" size="icon" className="text-white hover:bg-white/20">
-                    <ChevronRight className="h-8 w-8" />
-                </Button>
-            </div>
-        </div>
+        <section className="relative">
+          <Carousel
+            opts={{ loop: true }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {heroSlides.map((slide, index) => (
+                <CarouselItem key={index}>
+                  <div className="relative h-[600px] w-full">
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      fill
+                      className="object-cover"
+                      data-ai-hint={slide.imageHint}
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                      <div className="text-center text-white">
+                        <h1 className="text-5xl md:text-7xl font-bold">{slide.title}</h1>
+                        <p className="mt-4 text-lg">{slide.subtitle}</p>
+                        <Button variant="secondary" className="mt-8 bg-white text-black hover:bg-gray-200">Shop Now</Button>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-transparent border-2 border-white hover:bg-white/20 hover:text-white" />
+            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-transparent border-2 border-white hover:bg-white/20 hover:text-white" />
+          </Carousel>
+        </section>
 
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
@@ -322,3 +343,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
