@@ -74,17 +74,16 @@ body {
 
 @layer utilities {
   .thin-scrollbar::-webkit-scrollbar {
-    height: 2px;
+    height: 4px;
   }
   .thin-scrollbar::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
-    border-radius: 10px;
+    background: transparent;
   }
   .thin-scrollbar::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary) / 0.5);
+    background: #E5E7EB;
     border-radius: 10px;
   }
   .thin-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary));
+    background: #D1D5DB;
   }
 }

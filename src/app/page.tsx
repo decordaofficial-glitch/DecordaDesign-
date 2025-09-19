@@ -324,24 +324,10 @@ export default function Home() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-left mb-10 text-primary">Why Clients Love Us</h2>
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              plugins={[
-                Autoplay({
-                  delay: 5000,
-                  stopOnInteraction: false,
-                  stopOnMouseEnter: true,
-                }),
-              ]}
-              className="w-full"
-            >
-              <CarouselContent>
+            <div className="flex overflow-x-auto thin-scrollbar pb-4 -mb-4">
+              <div className="flex gap-8">
                 {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2">
-                    <div className="p-4 h-full">
+                    <div key={index} className="w-[500px] flex-shrink-0">
                       <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gray-50 h-full border">
                         <CardContent className="p-0 flex items-start">
                           <div className="relative w-40 h-[220px] flex-shrink-0">
@@ -354,12 +340,9 @@ export default function Home() {
                         </CardContent>
                       </Card>
                     </div>
-                  </CarouselItem>
                 ))}
-              </CarouselContent>
-              <CarouselPrevious className="hidden md:flex" />
-              <CarouselNext className="hidden md:flex" />
-            </Carousel>
+              </div>
+            </div>
           </div>
         </section>
 
