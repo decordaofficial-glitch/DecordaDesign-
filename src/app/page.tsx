@@ -301,8 +301,8 @@ export default function Home() {
                         <p className="mt-4 text-gray-600">Welcome to Decorda Design, your one-stop destination for all your event supplies and home decor needs! At Decorda, we blend creativity with quality to transform your special occasions and living spaces into unforgettable experiences. From elegant event supplies that set the perfect ambiance to stylish home decor pieces that reflect your unique taste, Decorda Design is your partner in turning dreams into reality. Discover a world of curated designs and impeccable craftsmanship—where every detail matters. Elevate your events and homes with Decorda Design, where style meets substance.</p>
                         <Button className="mt-6 bg-black hover:bg-gray-700">Learn More</Button>
                     </div>
-                    <div className="relative h-[400px] rounded-lg overflow-hidden flex items-center justify-center bg-black">
-                        <Image src="https://picsum.photos/seed/decordalogo/400/300" alt="Decorda Logo" width={300} height={225} className="object-contain" data-ai-hint="company logo" />
+                    <div className="relative h-[400px] rounded-lg overflow-hidden">
+                        <Image src="https://picsum.photos/seed/decordalogo/800/600" alt="Decorda Logo" fill className="object-cover" data-ai-hint="company logo abstract" />
                     </div>
                 </div>
             </div>
