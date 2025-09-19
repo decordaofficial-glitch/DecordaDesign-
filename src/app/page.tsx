@@ -35,6 +35,30 @@ export default function Home() {
       image: "https://picsum.photos/seed/product4/400/400",
       imageHint: "pvc wallpaper"
     },
+    {
+      name: "Anniversary Decor",
+      price: "1,499.00Rs",
+      image: "https://picsum.photos/seed/product5/400/400",
+      imageHint: "anniversary decoration"
+    },
+    {
+      name: "Custom Neon Signs",
+      price: "2,499.00Rs",
+      image: "https://picsum.photos/seed/product6/400/400",
+      imageHint: "neon sign"
+    },
+    {
+      name: "Modern Art Prints",
+      price: "899.00Rs",
+      image: "https://picsum.photos/seed/product7/400/400",
+      imageHint: "abstract art"
+    },
+    {
+      name: "Party Balloon Arch",
+      price: "1,799.00Rs",
+      image: "https://picsum.photos/seed/product8/400/400",
+      imageHint: "balloon arch"
+    },
   ];
 
   const testimonials = [
@@ -217,8 +241,8 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-10 text-primary">Featured Products</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-              {products.map((product) => (
-                <Card key={product.name} className="overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+              {products.map((product, index) => (
+                <Card key={index} className="overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                   <CardContent className="p-0">
                     <div className="relative h-80 w-full">
                        <Image src={product.image} alt={product.name} fill className="object-cover" data-ai-hint={product.imageHint} />
