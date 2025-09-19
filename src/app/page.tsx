@@ -179,11 +179,11 @@ export default function Home() {
                     <Link href="#" className={navLinkClasses}>Contact Us</Link>
                 </nav>
                 <div className="flex items-center gap-4">
-                    <Button variant="outline" className="hidden md:inline-flex bg-black text-white hover:bg-gray-700 border-black transition-colors">Shop Now</Button>
+                    <Button variant="outline" className="hidden md:inline-flex bg-black text-white hover:bg-gray-700 border-black transition-colors duration-300">Shop Now</Button>
                     <div className="flex items-center gap-4">
-                      <Search className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary transition-colors" />
+                      <Search className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary transition-colors duration-300" />
                       <Link href="/cart">
-                        <ShoppingCart className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary transition-colors" />
+                        <ShoppingCart className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary transition-colors duration-300" />
                       </Link>
                     </div>
                 </div>
@@ -243,7 +243,7 @@ export default function Home() {
                             }}
                             className="transition-all duration-700 ease-out delay-300"
                           >
-                            <Button className="mt-8 bg-black hover:bg-gray-700 transition-colors">Shop Now</Button>
+                            <Button className="mt-8 bg-black hover:bg-gray-700 transition-colors duration-300">Shop Now</Button>
                           </div>
                       </div>
                     </div>
@@ -251,8 +251,8 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-transparent border-2 border-white hover:bg-white/20 hover:text-white transition-all" />
-            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-transparent border-2 border-white hover:bg-white/20 hover:text-white transition-all" />
+            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-transparent border-2 border-white hover:bg-white/20 hover:text-white transition-all duration-300" />
+            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-transparent border-2 border-white hover:bg-white/20 hover:text-white transition-all duration-300" />
           </Carousel>
         </section>
 
@@ -270,7 +270,7 @@ export default function Home() {
                       <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
                       <p className="text-gray-600 mt-2">Starting From:</p>
                       <p className="text-xl font-bold text-primary mt-1">{product.price}</p>
-                      <Button className="mt-6 bg-black hover:bg-gray-700 transition-colors">Buy Now</Button>
+                      <Button className="mt-6 bg-black hover:bg-gray-700 transition-colors duration-300">Buy Now</Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -318,7 +318,7 @@ export default function Home() {
                     <div>
                         <h2 className="text-4xl font-bold font-display text-primary">Know More About Decorda</h2>
                         <p className="mt-4 text-gray-600">Welcome to Decorda Design, your one-stop destination for all your event supplies and home decor needs! At Decorda, we blend creativity with quality to transform your special occasions and living spaces into unforgettable experiences. From elegant event supplies that set the perfect ambiance to stylish home decor pieces that reflect your unique taste, Decorda Design is your partner in turning dreams into reality. Discover a world of curated designs and impeccable craftsmanship—where every detail matters. Elevate your events and homes with Decorda Design, where style meets substance.</p>
-                        <Button className="mt-6 bg-black hover:bg-gray-700 transition-colors">Learn More</Button>
+                        <Button className="mt-6 bg-black hover:bg-gray-700 transition-colors duration-300">Learn More</Button>
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden group">
                         <Image src="https://picsum.photos/seed/decordalogo/800/400" alt="Decorda Logo" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="company logo abstract" />
@@ -365,24 +365,24 @@ export default function Home() {
                 <div className="text-center text-white">
                     <h2 className="text-5xl md:text-6xl font-bold font-display">Sale up to 20% Off</h2>
                     <p className="mt-4 text-lg">Find the perfect match for your event decor in a reasonable price</p>
-                    <Button className="mt-8 bg-black hover:bg-gray-700 transition-colors">Shop Now</Button>
+                    <Button className="mt-8 bg-black hover:bg-gray-700 transition-colors duration-300">Shop Now</Button>
                 </div>
             </div>
         </section>
 
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-charcoal text-white">
             <div className="container mx-auto px-4">
                 <h2 className="text-4xl font-bold font-display text-center mb-10 text-primary">Our Benefits</h2>
                  <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
                     {benefits.map((benefit, index) => (
-                      <AccordionItem key={index} value={`item-${index+1}`}>
-                        <AccordionTrigger>
+                      <AccordionItem key={index} value={`item-${index+1}`} className="border-gray-600">
+                        <AccordionTrigger className="hover:text-primary transition-colors duration-300">
                           <div className="flex items-center gap-4">
                             {benefit.icon}
                             <span className="font-semibold">{benefit.title}</span>
                           </div>
                         </AccordionTrigger>
-                        <AccordionContent className="pl-10">
+                        <AccordionContent className="pl-10 text-gray-300">
                           {benefit.content}
                         </AccordionContent>
                       </AccordionItem>
@@ -408,12 +408,12 @@ export default function Home() {
                         <p className="mt-2 text-muted-foreground">Always Open</p>
 
                         <h3 className="text-xl font-bold font-display text-primary mt-8">Contact Info</h3>
-                        <a href="tel:+923192483064" className="mt-2 text-muted-foreground block hover:text-primary transition-colors">+92 319 2483064</a>
-                        <a href="mailto:decordaofficial@gmail.com" className="mt-1 text-muted-foreground block hover:text-primary transition-colors">decordaofficial@gmail.com</a>
+                        <a href="tel:+923192483064" className="mt-2 text-muted-foreground block hover:text-primary transition-colors duration-300">+92 319 2483064</a>
+                        <a href="mailto:decordaofficial@gmail.com" className="mt-1 text-muted-foreground block hover:text-primary transition-colors duration-300">decordaofficial@gmail.com</a>
 
                         <div className="flex gap-4 mt-4">
-                          <a href="#" className="text-primary hover:text-primary/80 transition-colors"><Facebook className="h-6 w-6" /></a>
-                          <a href="#" className="text-primary hover:text-primary/80 transition-colors"><Instagram className="h-6 w-6" /></a>
+                          <a href="#" className="text-primary hover:text-primary/80 transition-colors duration-300"><Facebook className="h-6 w-6" /></a>
+                          <a href="#" className="text-primary hover:text-primary/80 transition-colors duration-300"><Instagram className="h-6 w-6" /></a>
                         </div>
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
@@ -446,8 +446,8 @@ export default function Home() {
               </Link>
               <p className="mt-4 text-gray-400 text-sm">Elevate your events and homes with Decorda Design, where style meets substance.</p>
               <div className="flex gap-4 mt-6">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors"><Facebook className="h-6 w-6" /></a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors"><Instagram className="h-6 w-6" /></a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300"><Facebook className="h-6 w-6" /></a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300"><Instagram className="h-6 w-6" /></a>
               </div>
             </div>
             <div>

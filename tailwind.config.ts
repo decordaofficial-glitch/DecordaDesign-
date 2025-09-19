@@ -21,6 +21,7 @@ export default {
         display: ['Playfair Display', 'serif'],
       },
       colors: {
+        charcoal: '#232122',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
