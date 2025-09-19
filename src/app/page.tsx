@@ -107,23 +107,18 @@ export default function Home() {
       return
     }
  
-    const onSelect = () => {
+    setCurrent(api.selectedScrollSnap())
+ 
+    const onSelect = (api: CarouselApi) => {
       setCurrent(api.selectedScrollSnap())
     }
-
+ 
     api.on("select", onSelect)
-    
-    // Set initial slide
-    onSelect()
-
+ 
     return () => {
       api.off("select", onSelect)
     }
   }, [api])
-  
-  const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })
-  );
   
   const navLinkClasses = "relative text-gray-600 after:absolute after:left-1/2 after:right-1/2 after:bottom-0 after:h-[1.5px] after:bg-primary after:transition-all after:duration-300 hover:text-primary hover:after:left-0 hover:after:right-0";
 
@@ -170,7 +165,13 @@ export default function Home() {
           <Carousel
             setApi={setApi}
             opts={{ loop: true }}
-            plugins={[plugin.current]}
+            plugins={[
+              Autoplay({
+                delay: 4000,
+                stopOnInteraction: false,
+                stopOnMouseEnter: true,
+              }),
+            ]}
             className="w-full"
           >
             <CarouselContent>
@@ -186,11 +187,21 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                       <div className="text-center text-white overflow-hidden">
-                        <h1 className={`text-5xl md:text-7xl font-bold transition-all duration-700 ${current === index ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>{slide.title}</h1>
-                        <p className={`mt-4 text-lg transition-all duration-700 delay-200 ${current === index ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>{slide.subtitle}</p>
-                        <div className={`transition-all duration-700 delay-300 ${current === index ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
-                          <Button className="mt-8 bg-black hover:bg-gray-700">Shop Now</Button>
-                        </div>
+                          <h1
+                            className={`text-5xl md:text-7xl font-bold transition-all duration-700 ease-out ${current === index ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+                          >
+                            {slide.title}
+                          </h1>
+                          <p
+                            className={`mt-4 text-lg transition-all duration-700 ease-out delay-200 ${current === index ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+                          >
+                            {slide.subtitle}
+                          </p>
+                          <div
+                            className={`transition-all duration-700 ease-out delay-300 ${current === index ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+                          >
+                            <Button className="mt-8 bg-black hover:bg-gray-700">Shop Now</Button>
+                          </div>
                       </div>
                     </div>
                   </div>
@@ -207,9 +218,9 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-center mb-10 text-primary">Featured Products</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
               {products.map((product) => (
-                <Card key={product.name} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <Card key={product.name} className="overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                   <CardContent className="p-0">
-                    <div className="relative h-64 w-full">
+                    <div className="relative h-80 w-full">
                        <Image src={product.image} alt={product.name} fill className="object-cover" data-ai-hint={product.imageHint} />
                     </div>
                     <div className="p-6 text-center">
