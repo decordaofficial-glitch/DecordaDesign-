@@ -311,7 +311,7 @@ export default function Home() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-10 text-primary">Why Clients Love Us</h2>
-            <div className="flex overflow-x-auto space-x-8 pb-4">
+            <div className="flex overflow-x-auto space-x-8 pb-4 thin-scrollbar">
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="flex-shrink-0 w-[400px]">
                   <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gray-50 h-full">
