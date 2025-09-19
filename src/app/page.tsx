@@ -162,7 +162,7 @@ export default function Home() {
             <div className="flex items-center justify-between py-6">
                 <div className="flex items-center gap-8">
                     <Link href="/" className="flex flex-col -space-y-2 leading-none">
-                      <div className="text-3xl font-bold">
+                      <div className="text-3xl font-bold font-display">
                         <span className="text-gray-900">DECOR</span><span className="text-red-600">DA</span>
                       </div>
                       <span className="text-sm tracking-[0.18em] text-gray-700">DESIGN</span>
@@ -221,7 +221,7 @@ export default function Home() {
                               transform: current === index ? 'translateY(0)' : 'translateY(4rem)',
                               opacity: current === index ? 1 : 0,
                             }}
-                            className="text-5xl md:text-7xl font-bold transition-all duration-700 ease-out"
+                            className="text-5xl md:text-7xl font-bold font-display transition-all duration-700 ease-out"
                           >
                             {slide.title}
                           </h1>
@@ -256,7 +256,7 @@ export default function Home() {
 
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-10 text-primary">Featured Products</h2>
+            <h2 className="text-4xl font-bold font-display text-center mb-10 text-primary">Featured Products</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
               {products.map((product, index) => (
                 <Card key={index} className="overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
@@ -281,7 +281,7 @@ export default function Home() {
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 className="text-4xl font-bold text-gray-800">Let Us Decorate Your Memories</h2>
+                        <h2 className="text-4xl font-bold font-display text-gray-800">Let Us Decorate Your Memories</h2>
                         <p className="text-lg font-semibold text-gray-600 mt-2">We Believe In Quality Over Quantity</p>
                         <p className="mt-4 text-gray-600">At Decorda Design, we believe that every event is an opportunity to create magic and lasting memories. Our curated selection of event decorations is designed to transform any space into a captivating and visually stunning setting.</p>
                         <p className="mt-4 text-gray-600">From enchanting weddings to lively birthday celebrations, our decorations are crafted with precision and creativity, ensuring that each detail contributes to the overall ambiance of your event. Whether you envision a romantic and timeless atmosphere or a modern and vibrant vibe, Decorda Design has the perfect pieces to bring your vision to life.</p>
@@ -300,7 +300,7 @@ export default function Home() {
                         <Image src="https://picsum.photos/seed/livings/800/600" alt="Decorate Your Livings" fill className="object-cover" data-ai-hint="modern living room" />
                     </div>
                     <div className="md:pl-8">
-                        <h2 className="text-4xl font-bold text-gray-800">We Decor Your Livings</h2>
+                        <h2 className="text-4xl font-bold font-display text-gray-800">We Decor Your Livings</h2>
                         <p className="text-lg font-semibold text-gray-600 mt-2">Transform Your Space with Timeless Elegance: Decorda Design Home Decor</p>
                         <p className="mt-4 text-gray-600">Your home is a reflection of your style and personality, and at Decorda Design, we're here to help you curate a space that speaks to you. Our collection of home decorations is a celebration of sophistication and creativity, designed to elevate every corner of your living space.</p>
                         <p className="mt-4 text-gray-600">Discover a range of chic and timeless pieces, from eye-catching wall art to stylish accent pieces that effortlessly enhance your home's aesthetic. Whether you prefer a modern, minimalist vibe or a classic, traditional feel, Decorda Design has the perfect decor to complement your taste.</p>
@@ -314,7 +314,7 @@ export default function Home() {
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 className="text-4xl font-bold text-primary">Know More About Decorda</h2>
+                        <h2 className="text-4xl font-bold font-display text-primary">Know More About Decorda</h2>
                         <p className="mt-4 text-gray-600">Welcome to Decorda Design, your one-stop destination for all your event supplies and home decor needs! At Decorda, we blend creativity with quality to transform your special occasions and living spaces into unforgettable experiences. From elegant event supplies that set the perfect ambiance to stylish home decor pieces that reflect your unique taste, Decorda Design is your partner in turning dreams into reality. Discover a world of curated designs and impeccable craftsmanship—where every detail matters. Elevate your events and homes with Decorda Design, where style meets substance.</p>
                         <Button className="mt-6 bg-black hover:bg-gray-700">Learn More</Button>
                     </div>
@@ -327,7 +327,7 @@ export default function Home() {
         
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-left mb-10 text-primary">Why Clients Love Us</h2>
+            <h2 className="text-4xl font-bold font-display text-left mb-10 text-primary">Why Clients Love Us</h2>
             <div className="flex overflow-x-auto thin-scrollbar pb-4 -mb-4">
               <div className="flex gap-8">
                 {testimonials.map((testimonial, index) => (
@@ -361,7 +361,7 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                 <div className="text-center text-white">
-                    <h2 className="text-5xl md:text-6xl font-bold">Sale up to 20% Off</h2>
+                    <h2 className="text-5xl md:text-6xl font-bold font-display">Sale up to 20% Off</h2>
                     <p className="mt-4 text-lg">Find the perfect match for your event decor in a reasonable price</p>
                     <Button className="mt-8 bg-black hover:bg-gray-700">Shop Now</Button>
                 </div>
@@ -370,7 +370,7 @@ export default function Home() {
 
         <section className="py-16 bg-white">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-10 text-primary">Our Benefits</h2>
+                <h2 className="text-4xl font-bold font-display text-center mb-10 text-primary">Our Benefits</h2>
                  <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
                     {benefits.map((benefit, index) => (
                       <AccordionItem key={index} value={`item-${index+1}`}>
@@ -391,21 +391,21 @@ export default function Home() {
 
         <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-10 text-primary">Contact Us</h2>
+                <h2 className="text-4xl font-bold font-display text-center mb-10 text-primary">Contact Us</h2>
                 <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl mb-12">
                     <Image src="https://picsum.photos/seed/contact-hero/1200/400" alt="Contact Us" fill className="object-cover" data-ai-hint="office building" />
                 </div>
                 <div className="grid md:grid-cols-2 gap-12 items-start">
                     <div>
-                        <h3 className="text-xl font-bold text-primary">Gulistan e Johar Branch</h3>
+                        <h3 className="text-xl font-bold font-display text-primary">Gulistan e Johar Branch</h3>
                         <p className="mt-4 text-gray-600">Office: 9th Floor Building, Neighborhood Section 20, Gulistan e Johar, Near Toyota Showroom</p>
                         <p className="mt-2 text-gray-600">Karachi, Pakistan</p>
                         <a href="#" className="text-primary mt-2 inline-flex items-center gap-1 hover:underline">Get directions <MapPin className="h-4 w-4" /></a>
                         
-                        <h3 className="text-xl font-bold text-primary mt-8">Open hours</h3>
+                        <h3 className="text-xl font-bold font-display text-primary mt-8">Open hours</h3>
                         <p className="mt-2 text-gray-600">Always Open</p>
 
-                        <h3 className="text-xl font-bold text-primary mt-8">Contact Info</h3>
+                        <h3 className="text-xl font-bold font-display text-primary mt-8">Contact Info</h3>
                         <a href="tel:+923192483064" className="mt-2 text-gray-600 block hover:text-primary transition-colors">+92 319 2483064</a>
                         <a href="mailto:decordaofficial@gmail.com" className="mt-1 text-gray-600 block hover:text-primary transition-colors">decordaofficial@gmail.com</a>
 
@@ -437,7 +437,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-1">
               <Link href="/" className="flex flex-col -space-y-2 leading-none">
-                <div className="text-3xl font-bold">
+                <div className="text-3xl font-bold font-display">
                   <span className="text-white">DECOR</span><span className="text-red-600">DA</span>
                 </div>
                 <span className="text-sm tracking-[0.18em] text-gray-400">DESIGN</span>

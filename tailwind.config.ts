@@ -17,7 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
+        sans: ['Montserrat', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
