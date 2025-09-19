@@ -7,6 +7,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Link from 'next/link';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import React from "react";
 
 export default function Home() {
   const products = [
@@ -97,6 +99,10 @@ export default function Home() {
       imageHint: "modern living room"
     }
   ]
+  
+  const plugin = React.useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  );
 
   return (
     <div className="bg-[#F8F8F8] text-gray-800">
@@ -137,6 +143,9 @@ export default function Home() {
         <section className="relative">
           <Carousel
             opts={{ loop: true }}
+            plugins={[plugin.current]}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
             className="w-full"
           >
             <CarouselContent>
@@ -343,5 +352,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
