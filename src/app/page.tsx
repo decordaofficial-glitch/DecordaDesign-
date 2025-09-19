@@ -289,7 +289,7 @@ export default function Home() {
             </div>
         </section>
 
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="relative h-[600px] rounded-lg overflow-hidden shadow-xl order-last md:order-first">
