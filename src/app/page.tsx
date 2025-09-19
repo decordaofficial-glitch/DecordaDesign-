@@ -106,7 +106,7 @@ export default function Home() {
 
   return (
     <div className="bg-[#F8F8F8] text-gray-800">
-      <div className="bg-gray-800 text-white text-center py-3 text-sm">
+      <div className="bg-gray-800 text-white text-center py-4 text-sm">
         Free shipping for orders over Rs 999
       </div>
 
@@ -132,7 +132,7 @@ export default function Home() {
                     <Link href="#" className="hover:text-primary">Contact Us</Link>
                 </nav>
                 <div className="flex items-center gap-4">
-                    <Button variant="outline" className="hidden md:inline-flex border-gray-400 text-gray-800 hover:bg-gray-100">Shop Now</Button>
+                    <Button variant="outline" className="hidden md:inline-flex bg-white text-black hover:bg-gray-800 hover:text-white border-black">Shop Now</Button>
                     <div className="flex items-center gap-4">
                       <Search className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
                       <ShoppingCart className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
@@ -166,7 +166,7 @@ export default function Home() {
                       <div className="text-center text-white">
                         <h1 className="text-5xl md:text-7xl font-bold">{slide.title}</h1>
                         <p className="mt-4 text-lg">{slide.subtitle}</p>
-                        <Button variant="secondary" className="mt-8 bg-white text-black hover:bg-gray-200">Shop Now</Button>
+                        <Button className="mt-8 bg-black text-white hover:bg-gray-800">Shop Now</Button>
                       </div>
                     </div>
                   </div>
@@ -192,7 +192,7 @@ export default function Home() {
                       <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
                       <p className="text-gray-600 mt-2">Starting From:</p>
                       <p className="text-xl font-bold text-primary mt-1">{product.price}</p>
-                      <Button variant="outline" className="mt-6 border-primary text-primary hover:bg-primary hover:text-white">Buy Now</Button>
+                      <Button className="mt-6 bg-black text-white hover:bg-gray-800">Buy Now</Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -240,7 +240,7 @@ export default function Home() {
                     <div>
                         <h2 className="text-4xl font-bold text-primary">Know More About Decorda</h2>
                         <p className="mt-4 text-gray-600">Welcome to Decorda Design, your one-stop destination for all your event supplies and home decor needs! At Decorda, we blend creativity with quality to transform your special occasions and living spaces into unforgettable experiences. From elegant event supplies that set the perfect ambiance to stylish home decor pieces that reflect your unique taste, Decorda Design is your partner in turning dreams into reality. Discover a world of curated designs and impeccable craftsmanship—where every detail matters. Elevate your events and homes with Decorda Design, where style meets substance.</p>
-                        <Button variant="outline" className="mt-6 border-primary text-primary hover:bg-primary hover:text-white">Learn More</Button>
+                        <Button className="mt-6 bg-black text-white hover:bg-gray-800">Learn More</Button>
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden flex items-center justify-center bg-black">
                         <Image src="https://picsum.photos/seed/decordalogo/400/300" alt="Decorda Logo" width={300} height={225} className="object-contain" data-ai-hint="company logo" />
@@ -285,7 +285,7 @@ export default function Home() {
                 <div className="text-center text-white">
                     <h2 className="text-5xl md:text-6xl font-bold">Sale up to 20% Off</h2>
                     <p className="mt-4 text-lg">Find the perfect match for your event decor in a reasonable price</p>
-                    <Button variant="secondary" className="mt-8 bg-white text-black hover:bg-gray-200">Shop Now</Button>
+                    <Button className="mt-8 bg-black text-white hover:bg-gray-800">Shop Now</Button>
                 </div>
             </div>
         </section>
