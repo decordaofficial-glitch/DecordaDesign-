@@ -103,6 +103,8 @@ export default function Home() {
   const plugin = React.useRef(
     Autoplay({ delay: 4000, stopOnInteraction: true })
   );
+  
+  const navLinkClasses = "relative text-gray-600 after:absolute after:left-1/2 after:right-1/2 after:bottom-0 after:h-[1.5px] after:bg-primary after:transition-all after:duration-300 hover:text-primary hover:after:left-0 hover:after:right-0";
 
   return (
     <div className="bg-[#F8F8F8] text-gray-800">
@@ -121,15 +123,15 @@ export default function Home() {
                       <span className="text-sm tracking-[0.18em] text-gray-700">DESIGN</span>
                     </Link>
                 </div>
-                <nav className="hidden md:flex items-center justify-center flex-1 gap-6 text-sm text-gray-600">
-                    <Link href="#" className="hover:text-primary">Home</Link>
-                    <Link href="#" className="hover:text-primary">Event Backdrops</Link>
-                    <Link href="#" className="hover:text-primary">Cards & Invitations</Link>
-                    <Link href="#" className="hover:text-primary">Welcome Standee</Link>
-                    <Link href="#" className="hover:text-primary">Home Decor</Link>
-                    <Link href="#" className="hover:text-primary">Wall Poster</Link>
-                    <Link href="#" className="hover:text-primary">Party Supplies</Link>
-                    <Link href="#" className="hover:text-primary">Contact Us</Link>
+                <nav className="hidden md:flex items-center justify-center flex-1 gap-8 text-sm">
+                    <Link href="#" className={navLinkClasses}>Home</Link>
+                    <Link href="#" className={navLinkClasses}>Event Backdrops</Link>
+                    <Link href="#" className={navLinkClasses}>Cards & Invitations</Link>
+                    <Link href="#" className={navLinkClasses}>Welcome Standee</Link>
+                    <Link href="#" className={navLinkClasses}>Home Decor</Link>
+                    <Link href="#" className={navLinkClasses}>Wall Poster</Link>
+                    <Link href="#" className={navLinkClasses}>Party Supplies</Link>
+                    <Link href="#" className={navLinkClasses}>Contact Us</Link>
                 </nav>
                 <div className="flex items-center gap-4">
                     <Button variant="outline" className="hidden md:inline-flex bg-white text-black hover:bg-gray-800 hover:text-white border-black">Shop Now</Button>
@@ -166,7 +168,7 @@ export default function Home() {
                       <div className="text-center text-white">
                         <h1 className="text-5xl md:text-7xl font-bold">{slide.title}</h1>
                         <p className="mt-4 text-lg">{slide.subtitle}</p>
-                        <Button className="mt-8 bg-black text-white hover:bg-gray-800">Shop Now</Button>
+                        <Button className="mt-8">Shop Now</Button>
                       </div>
                     </div>
                   </div>
@@ -192,7 +194,7 @@ export default function Home() {
                       <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
                       <p className="text-gray-600 mt-2">Starting From:</p>
                       <p className="text-xl font-bold text-primary mt-1">{product.price}</p>
-                      <Button className="mt-6 bg-black text-white hover:bg-gray-800">Buy Now</Button>
+                      <Button className="mt-6">Buy Now</Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -240,7 +242,7 @@ export default function Home() {
                     <div>
                         <h2 className="text-4xl font-bold text-primary">Know More About Decorda</h2>
                         <p className="mt-4 text-gray-600">Welcome to Decorda Design, your one-stop destination for all your event supplies and home decor needs! At Decorda, we blend creativity with quality to transform your special occasions and living spaces into unforgettable experiences. From elegant event supplies that set the perfect ambiance to stylish home decor pieces that reflect your unique taste, Decorda Design is your partner in turning dreams into reality. Discover a world of curated designs and impeccable craftsmanship—where every detail matters. Elevate your events and homes with Decorda Design, where style meets substance.</p>
-                        <Button className="mt-6 bg-black text-white hover:bg-gray-800">Learn More</Button>
+                        <Button className="mt-6">Learn More</Button>
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden flex items-center justify-center bg-black">
                         <Image src="https://picsum.photos/seed/decordalogo/400/300" alt="Decorda Logo" width={300} height={225} className="object-contain" data-ai-hint="company logo" />
@@ -285,7 +287,7 @@ export default function Home() {
                 <div className="text-center text-white">
                     <h2 className="text-5xl md:text-6xl font-bold">Sale up to 20% Off</h2>
                     <p className="mt-4 text-lg">Find the perfect match for your event decor in a reasonable price</p>
-                    <Button className="mt-8 bg-black text-white hover:bg-gray-800">Shop Now</Button>
+                    <Button className="mt-8">Shop Now</Button>
                 </div>
             </div>
         </section>
