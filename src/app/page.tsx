@@ -65,28 +65,32 @@ export default function Home() {
     {
       name: "Fareeha Ismail",
       rating: 5,
-      text: "Fantastic Birthday Backdrop! ★★★★★ Ordered the Frozen Elsa Birthday Backdrop for my daughter's party, and it was a game-changer! Easy setup, vibrant colors, and made for stunning photos. Highly recommended for an instant party.",
+      title: "Fantastic Birthday Backdrop! ★★★★★",
+      text: "Ordered the Frozen Elsa Birthday Backdrop for my daughter's party, and it was a game-changer! Easy setup, vibrant colors, and made for stunning photos. Highly recommended for an instant party.",
       image: "https://picsum.photos/seed/testimonial-fareeha/300/400",
       imageHint: "woman portrait"
     },
     {
       name: "********667",
       rating: 5,
-      text: "Thankyouuu Soo much ❤️❤️ Bht bht acha bnaya apne 😍😍 I love it ❤️",
+      title: "Thankyouuu Soo much ❤️❤️",
+      text: "Bht bht acha bnaya apne 😍😍 I love it ❤️",
       image: "https://picsum.photos/seed/testimonial1/300/400",
       imageHint: "party decoration"
     },
     {
       name: "Kashif Ahmar",
       rating: 5,
-      text: "Beautiful wedding backdrop! ★★★★★ It added a touch of elegance to our special day, and the quality exceeded our expectations. Highly recommend for anyone looking to enhance their wedding decor!",
+      title: "Beautiful wedding backdrop! ★★★★★",
+      text: "It added a touch of elegance to our special day, and the quality exceeded our expectations. Highly recommend for anyone looking to enhance their wedding decor!",
       image: "https://picsum.photos/seed/testimonial2/300/400",
       imageHint: "man portrait"
     },
     {
       name: "********",
       rating: 5,
-      text: "Exceptional home decor products! ★★★★★ The attention to detail and quality are unmatched. Our space has been transformed, thanks to these stylish and well-crafted pieces. Highly satisfied with the purchase!",
+      title: "Exceptional home decor products! ★★★★★",
+      text: "The attention to detail and quality are unmatched. Our space has been transformed, thanks to these stylish and well-crafted pieces. Highly satisfied with the purchase!",
       image: "https://picsum.photos/seed/testimonial3/300/400",
       imageHint: "woman selfie"
     }
@@ -334,7 +338,8 @@ export default function Home() {
                               <Image src={testimonial.image} alt={testimonial.name} fill className="object-cover" data-ai-hint={testimonial.imageHint} />
                           </div>
                           <div className="flex flex-col p-6">
-                              <p className="text-gray-600 text-sm flex-grow">{testimonial.text}</p>
+                              <h3 className="font-semibold text-lg">{testimonial.title}</h3>
+                              <p className="text-gray-600 text-sm flex-grow mt-2">{testimonial.text}</p>
                               <p className="font-semibold text-right mt-4">{testimonial.name}</p>
                           </div>
                         </CardContent>
@@ -363,7 +368,7 @@ export default function Home() {
             </div>
         </section>
 
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-white">
             <div className="container mx-auto px-4">
                 <h2 className="text-4xl font-bold text-center mb-10 text-primary">Our Benefits</h2>
                  <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
