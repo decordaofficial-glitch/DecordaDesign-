@@ -1,7 +1,7 @@
 
 "use client";
 import Image from "next/image";
-import { Search, User, ShoppingCart, ShieldCheck, CircleDollarSign, Truck, Undo2, MapPin, Facebook, Instagram } from "lucide-react";
+import { Search, ShoppingCart, ShieldCheck, CircleDollarSign, Truck, Undo2, MapPin, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -110,28 +110,28 @@ export default function Home() {
         Free shipping for orders over Rs 999
       </div>
 
-      <header className="border-b bg-white">
+      <header className="border-b bg-white sticky top-0 z-50">
         <div className="container mx-auto px-4">
             <div className="flex items-center justify-between py-4">
                 <div className="flex items-center gap-8">
-                    <Link href="/" className="text-2xl font-bold text-gray-900">DECORBA</Link>
-                    <nav className="hidden md:flex items-center gap-6 text-sm text-gray-600">
-                        <Link href="#" className="hover:text-primary">Home</Link>
-                        <Link href="#" className="hover:text-primary">Event Backdrops</Link>
-                        <Link href="#" className="hover:text-primary">Cards & Invitations</Link>
-                        <Link href="#" className="hover:text-primary">Welcome Standee</Link>
-                        <Link href="#" className="hover:text-primary">Home Decor</Link>
-                        <Link href="#" className="hover:text-primary">Wall Poster</Link>
-                        <Link href="#" className="hover:text-primary">Party Supplies</Link>
-                        <Link href="#" className="hover:text-primary">Contact Us</Link>
-                        <Link href="#" className="hover:text-primary">About Us</Link>
-                    </nav>
+                    <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-gray-900">
+                      <Image src="https://picsum.photos/seed/logo/150/40" width={150} height={40} alt="Decorda Design" data-ai-hint="logo" />
+                    </Link>
                 </div>
+                <nav className="hidden md:flex items-center justify-center flex-1 gap-6 text-sm text-gray-600">
+                    <Link href="#" className="hover:text-primary">Home</Link>
+                    <Link href="#" className="hover:text-primary">Event Backdrops</Link>
+                    <Link href="#" className="hover:text-primary">Cards & Invitations</Link>
+                    <Link href="#" className="hover:text-primary">Welcome Standee</Link>
+                    <Link href="#" className="hover:text-primary">Home Decor</Link>
+                    <Link href="#" className="hover:text-primary">Wall Poster</Link>
+                    <Link href="#" className="hover:text-primary">Party Supplies</Link>
+                    <Link href="#" className="hover:text-primary">Contact Us</Link>
+                </nav>
                 <div className="flex items-center gap-4">
-                    <Button variant="outline" className="hidden md:inline-flex border-primary text-primary hover:bg-primary hover:text-white">Shop Now</Button>
+                    <Button variant="outline" className="hidden md:inline-flex border-gray-400 text-gray-800 hover:bg-gray-100">Shop Now</Button>
                     <div className="flex items-center gap-4">
                       <Search className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
-                      <User className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
                       <ShoppingCart className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary" />
                     </div>
                 </div>
