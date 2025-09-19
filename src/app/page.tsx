@@ -432,14 +432,55 @@ export default function Home() {
 
       </main>
 
-      <footer className="bg-gray-800 text-white py-8">
-        <div className="container mx-auto px-4 text-center text-sm">
-          <p>Decorda Design</p>
-          <div className="flex justify-center gap-4 mt-2">
-            <Link href="#" className="hover:underline">Cookie settings</Link>
-            <Link href="#" className="hover:underline">Report abuse</Link>
+      <footer className="bg-black text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="md:col-span-1">
+              <Link href="/" className="flex flex-col -space-y-2 leading-none">
+                <div className="text-3xl font-bold">
+                  <span className="text-white">DECOR</span><span className="text-red-600">DA</span>
+                </div>
+                <span className="text-sm tracking-[0.18em] text-gray-400">DESIGN</span>
+              </Link>
+              <p className="mt-4 text-gray-400 text-sm">Elevate your events and homes with Decorda Design, where style meets substance.</p>
+              <div className="flex gap-4 mt-6">
+                <a href="#" className="text-gray-400 hover:text-white"><Facebook className="h-6 w-6" /></a>
+                <a href="#" className="text-gray-400 hover:text-white"><Instagram className="h-6 w-6" /></a>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-semibold text-white">Quick Links</h3>
+              <nav className="mt-4 flex flex-col gap-2 text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white hover:underline">Home</Link>
+                <Link href="#" className="text-gray-400 hover:text-white hover:underline">Event Backdrops</Link>
+                <Link href="#" className="text-gray-400 hover:text-white hover:underline">Home Decor</Link>
+                <Link href="#" className="text-gray-400 hover:text-white hover:underline">Contact Us</Link>
+              </nav>
+            </div>
+            <div>
+              <h3 className="font-semibold text-white">Customer Service</h3>
+              <nav className="mt-4 flex flex-col gap-2 text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white hover:underline">FAQ</Link>
+                <Link href="#" className="text-gray-400 hover:text-white hover:underline">Shipping & Returns</Link>
+                <Link href="#" className="text-gray-400 hover:text-white hover:underline">Privacy Policy</Link>
+                <Link href="#" className="text-gray-400 hover:text-white hover:underline">Terms of Service</Link>
+              </nav>
+            </div>
+            <div>
+              <h3 className="font-semibold text-white">Contact</h3>
+              <div className="mt-4 text-sm text-gray-400 space-y-2">
+                <p>+92 319 2483064</p>
+                <p>decordaofficial@gmail.com</p>
+              </div>
+            </div>
           </div>
-          <p className="mt-4 text-gray-400">Powered by Lightpost</p>
+          <div className="mt-8 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+            <div className="flex gap-4">
+              <Link href="#" className="text-gray-500 hover:text-white hover:underline">Cookie settings</Link>
+              <Link href="#" className="text-gray-500 hover:text-white hover:underline">Report abuse</Link>
+            </div>
+            <p className="mt-4 md:mt-0 text-gray-500">&copy; {new Date().getFullYear()} Decorda Design. Powered by Lightpost.</p>
+          </div>
         </div>
       </footer>
     </div>
