@@ -343,8 +343,8 @@ export default function Home() {
                   <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                     <div className="p-4 h-full">
                       <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gray-50 h-full border">
-                        <CardContent className="p-0 flex items-start gap-6">
-                          <div className="relative w-40 h-full flex-shrink-0">
+                        <CardContent className="p-0 flex items-start">
+                          <div className="relative w-40 h-[220px] flex-shrink-0">
                               <Image src={testimonial.image} alt={testimonial.name} fill className="object-cover" data-ai-hint={testimonial.imageHint} />
                           </div>
                           <div className="flex flex-col p-6">
