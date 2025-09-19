@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Link from 'next/link';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 
@@ -99,6 +99,28 @@ export default function Home() {
     }
   ]
   
+  const [api, setApi] = React.useState<CarouselApi>()
+  const [current, setCurrent] = React.useState(0)
+ 
+  React.useEffect(() => {
+    if (!api) {
+      return
+    }
+ 
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap())
+    }
+
+    api.on("select", onSelect)
+    
+    // Set initial slide
+    onSelect()
+
+    return () => {
+      api.off("select", onSelect)
+    }
+  }, [api])
+  
   const plugin = React.useRef(
     Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
@@ -146,13 +168,14 @@ export default function Home() {
       <main>
         <section className="relative">
           <Carousel
+            setApi={setApi}
             opts={{ loop: true }}
             plugins={[plugin.current]}
             className="w-full"
           >
             <CarouselContent>
               {heroSlides.map((slide, index) => (
-                <CarouselItem key={index} className="group/slide">
+                <CarouselItem key={index}>
                   <div className="relative h-[600px] w-full">
                     <Image
                       src={slide.image}
@@ -163,9 +186,9 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                       <div className="text-center text-white overflow-hidden">
-                        <h1 className="text-5xl md:text-7xl font-bold transition-all duration-700 translate-y-full opacity-0 group-data-[active=true]:translate-y-0 group-data-[active=true]:opacity-100">{slide.title}</h1>
-                        <p className="mt-4 text-lg transition-all duration-700 delay-200 translate-y-full opacity-0 group-data-[active=true]:translate-y-0 group-data-[active=true]:opacity-100">{slide.subtitle}</p>
-                        <div className="transition-all duration-700 delay-300 translate-y-full opacity-0 group-data-[active=true]:translate-y-0 group-data-[active=true]:opacity-100">
+                        <h1 className={`text-5xl md:text-7xl font-bold transition-all duration-700 ${current === index ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>{slide.title}</h1>
+                        <p className={`mt-4 text-lg transition-all duration-700 delay-200 ${current === index ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>{slide.subtitle}</p>
+                        <div className={`transition-all duration-700 delay-300 ${current === index ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
                           <Button className="mt-8 bg-black hover:bg-gray-700">Shop Now</Button>
                         </div>
                       </div>
