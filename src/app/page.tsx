@@ -269,7 +269,7 @@ export default function Home() {
                         <p className="mt-4 text-gray-600">At Decorda Design, we believe that every event is an opportunity to create magic and lasting memories. Our curated selection of event decorations is designed to transform any space into a captivating and visually stunning setting.</p>
                         <p className="mt-4 text-gray-600">From enchanting weddings to lively birthday celebrations, our decorations are crafted with precision and creativity, ensuring that each detail contributes to the overall ambiance of your event. Whether you envision a romantic and timeless atmosphere or a modern and vibrant vibe, Decorda Design has the perfect pieces to bring your vision to life.</p>
                     </div>
-                    <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
+                    <div className="relative h-[600px] rounded-lg overflow-hidden shadow-xl">
                         <Image src="https://picsum.photos/seed/memories/600/700" alt="Decorate Your Memories" fill className="object-cover" data-ai-hint="event decoration" />
                     </div>
                 </div>
@@ -279,7 +279,7 @@ export default function Home() {
         <section className="py-16 bg-white">
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl order-last md:order-first">
+                    <div className="relative h-[600px] rounded-lg overflow-hidden shadow-xl order-last md:order-first">
                         <Image src="https://picsum.photos/seed/livings/800/600" alt="Decorate Your Livings" fill className="object-cover" data-ai-hint="modern living room" />
                     </div>
                     <div className="md:pl-8">
