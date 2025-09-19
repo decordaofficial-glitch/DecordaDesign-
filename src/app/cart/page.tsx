@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Minus, Plus, Trash2, Facebook, Instagram } from "lucide-react";
+import React, { useState } from "react";
 
 export default function CartPage() {
-  // Placeholder data
-  const cartItems = [
+  const initialCartItems = [
     {
       id: 1,
       name: "Birthday Event Backdrop",
@@ -27,6 +27,22 @@ export default function CartPage() {
       imageHint: "wall clock"
     },
   ];
+
+  const [cartItems, setCartItems] = useState(initialCartItems);
+
+  const handleQuantityChange = (id: number, delta: number) => {
+    setCartItems(
+      cartItems.map((item) =>
+        item.id === id
+          ? { ...item, quantity: Math.max(1, item.quantity + delta) }
+          : item
+      )
+    );
+  };
+
+  const handleRemoveItem = (id: number) => {
+    setCartItems(cartItems.filter((item) => item.id !== id));
+  };
 
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
@@ -55,47 +71,53 @@ export default function CartPage() {
         <h1 className="text-3xl md:text-4xl font-bold font-display text-center mb-8 md:mb-10 text-primary">Shopping Cart</h1>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
           <div className="lg:col-span-2 space-y-6">
-            {cartItems.map((item) => (
-              <div key={item.id} className="flex flex-col md:flex-row items-center gap-4 md:gap-6 bg-gray-50 p-4 rounded-lg shadow-sm">
-                <div className="relative w-full h-48 md:w-28 md:h-28 rounded-md overflow-hidden flex-shrink-0">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover"
-                    data-ai-hint={item.imageHint}
-                  />
-                </div>
-                <div className="flex-1 w-full text-center md:text-left">
-                  <h2 className="text-lg font-semibold font-display">{item.name}</h2>
-                  <p className="text-primary font-bold mt-1">
-                    {item.price.toFixed(2)}Rs
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Button variant="outline" size="icon" className="h-8 w-8">
-                    <Minus className="h-4 w-4" />
-                  </Button>
-                  <Input
-                    type="number"
-                    value={item.quantity}
-                    className="w-16 h-8 text-center"
-                    readOnly
-                  />
-                  <Button variant="outline" size="icon" className="h-8 w-8">
-                    <Plus className="h-4 w-4" />
-                  </Button>
-                </div>
-                <p className="font-bold w-full md:w-24 text-center md:text-right text-lg md:text-base">
-                  {(item.price * item.quantity).toFixed(2)}Rs
-                </p>
-                <div className="flex justify-end w-full md:w-auto">
-                    <Button variant="ghost" size="icon" className="text-gray-500 hover:text-red-600">
-                    <Trash2 className="h-5 w-5" />
+            {cartItems.length > 0 ? (
+                cartItems.map((item) => (
+                <div key={item.id} className="flex flex-col md:flex-row items-center gap-4 md:gap-6 bg-gray-50 p-4 rounded-lg shadow-sm">
+                    <div className="relative w-full h-48 md:w-28 md:h-28 rounded-md overflow-hidden flex-shrink-0">
+                    <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={item.imageHint}
+                    />
+                    </div>
+                    <div className="flex-1 w-full text-center md:text-left">
+                    <h2 className="text-lg font-semibold font-display">{item.name}</h2>
+                    <p className="text-primary font-bold mt-1">
+                        {item.price.toFixed(2)}Rs
+                    </p>
+                    </div>
+                    <div className="flex items-center gap-4">
+                    <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => handleQuantityChange(item.id, -1)}>
+                        <Minus className="h-4 w-4" />
                     </Button>
+                    <Input
+                        type="number"
+                        value={item.quantity}
+                        className="w-16 h-8 text-center"
+                        readOnly
+                    />
+                    <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => handleQuantityChange(item.id, 1)}>
+                        <Plus className="h-4 w-4" />
+                    </Button>
+                    </div>
+                    <p className="font-bold w-full md:w-24 text-center md:text-right text-lg md:text-base">
+                    {(item.price * item.quantity).toFixed(2)}Rs
+                    </p>
+                    <div className="flex justify-end w-full md:w-auto">
+                        <Button variant="ghost" size="icon" className="text-gray-500 hover:text-red-600" onClick={() => handleRemoveItem(item.id)}>
+                        <Trash2 className="h-5 w-5" />
+                        </Button>
+                    </div>
                 </div>
-              </div>
-            ))}
+                ))
+            ) : (
+                <div className="text-center py-12 bg-gray-50 rounded-lg">
+                    <p className="text-xl text-gray-500">Your cart is empty.</p>
+                </div>
+            )}
              <div className="text-center mt-8">
               <Link href="/" className="text-primary hover:underline font-semibold">
                 &larr; Continue Shopping
@@ -119,7 +141,7 @@ export default function CartPage() {
                 <span>{total.toFixed(2)}Rs</span>
               </div>
             </div>
-            <Button className="w-full mt-8 bg-black text-white hover:bg-gray-800">
+            <Button className="w-full mt-8 bg-black text-white hover:bg-gray-800" disabled={cartItems.length === 0}>
               Proceed to Checkout
             </Button>
           </div>
