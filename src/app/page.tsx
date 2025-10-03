@@ -44,8 +44,7 @@ export default function Home() {
       name: "Custom Neon Signs",
       price: "2,499.00Rs",
       image: "https://picsum.photos/seed/product6/400/600",
-      imageHint: "neon sign"
-    },
+      imageHint: "neon sign"    },
     {
       name: "Modern Art Prints",
       price: "899.00Rs",
@@ -480,3 +479,4 @@ export default function Home() {
       </footer>
     </div>
   );
+}
