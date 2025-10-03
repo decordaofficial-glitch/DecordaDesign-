@@ -319,7 +319,7 @@ export default function Home() {
                         <Button className="mt-6 bg-black hover:bg-gray-700 transition-colors duration-300">Learn More</Button>
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden group">
-                        <Image src="https://picsum.photos/seed/decordalogo/800/400" alt="Decorda Logo" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="company logo abstract" />
+                        <Image src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759494107/About_Us_dalgr6.jpg" alt="Decorda Logo" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="company logo abstract" />
                     </div>
                 </div>
             </div>
