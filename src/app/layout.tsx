@@ -5,9 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 export const metadata: Metadata = {
   title: 'Decorba',
   description: 'Event Backdrops and Party Supplies',
-  icons: {
-    icon: 'https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759491772/Fabicon_32x32-03_murthm.png?v=2',
-  },
 };
 
 export default function RootLayout({
