@@ -1,11 +1,6 @@
 
 // next.config.js
 module.exports = {
-  experimental: {
-    turbopack: {
-      root: './', // Adjust this path
-    },
-  },
   images: {
     remotePatterns: [
       {

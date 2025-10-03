@@ -1,3 +1,6 @@
+"use client";
+
+
 import Image from "next/image";
 import { Search, ShoppingCart, ShieldCheck, CircleDollarSign, Truck, Undo2, MapPin, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
