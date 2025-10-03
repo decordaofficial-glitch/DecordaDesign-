@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import { Search, ShoppingCart, ShieldCheck, CircleDollarSign, Truck, Undo2, MapPin, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -162,10 +161,7 @@ export default function Home() {
             <div className="flex items-center justify-between py-6">
                 <div className="flex items-center gap-8">
                     <Link href="/" className="flex flex-col -space-y-2 leading-none">
-                      <div className="text-3xl font-bold font-display">
-                        <span className="text-gray-900">DECOR</span><span className="text-red-600">DA</span>
-                      </div>
-                      <span className="text-sm tracking-[0.18em] text-gray-700">DESIGN</span>
+                      <Image src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759494205/Decorda_Header_Logo_x7kfez.png" alt="Decorda Logo" width={150} height={50} />
                     </Link>
                 </div>
                 <nav className="hidden md:flex items-center justify-center flex-1 gap-8 text-sm">
@@ -439,10 +435,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-1">
               <Link href="/" className="flex flex-col -space-y-2 leading-none">
-                <div className="text-3xl font-bold font-display">
-                  <span className="text-white">DECOR</span><span className="text-red-600">DA</span>
-                </div>
-                <span className="text-sm tracking-[0.18em] text-gray-400">DESIGN</span>
+                <Image src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759494205/Decorda_Header_Logo_x7kfez.png" alt="Decorda Logo" width={150} height={50} />
               </Link>
               <p className="mt-4 text-gray-400 text-sm">Elevate your events and homes with Decorda Design, where style meets substance.</p>
               <div className="flex gap-4 mt-6">
@@ -487,4 +480,3 @@ export default function Home() {
       </footer>
     </div>
   );
-}
