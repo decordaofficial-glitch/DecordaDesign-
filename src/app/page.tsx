@@ -124,16 +124,29 @@ export default function Home() {
     {
       title: "Event's Backdrops",
       subtitle: "Create unforgettable moments with our stunning event backdrops.",
-      image: "https://picsum.photos/seed/hero-backdrop/1920/600",
+      image: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499667/Event_Backdrops_u9ibuv.jpg",
       imageHint: "event backdrop"
     },
     {
       title: "Stunning Home Decor",
       subtitle: "Transform your living space with our elegant home decor pieces.",
-      image: "https://picsum.photos/seed/hero-decor/1920/600",
+      image: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499667/Home_Decor_ufifql.jpg",
       imageHint: "modern living room"
+    },
+    {
+      title: "Party Supplies",
+      subtitle: "Everything you need for your next celebration.",
+      image: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499636/Party_Supplies_lwpdio.jpg",
+      imageHint: "party supplies"
+    },
+    {
+      title: "Fasion Supplies",
+      subtitle: "Everything you need for your next celebration.",
+      image: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499666/Decorda_Fasion_arqpuq.jpg",
+      imageHint: "Fasion supplies"
     }
-  ]
+   
+]
   
   const [api, setApi] = React.useState<CarouselApi>()
   const [current, setCurrent] = React.useState(0)
