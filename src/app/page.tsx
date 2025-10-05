@@ -300,7 +300,7 @@ export default function Home() {
                         <p className="mt-4 text-gray-600">From enchanting weddings to lively birthday celebrations, our decorations are crafted with precision and creativity, ensuring that each detail contributes to the overall ambiance of your event. Whether you envision a romantic and timeless atmosphere or a modern and vibrant vibe, Decorda Design has the perfect pieces to bring your vision to life.</p>
                     </div>
                     <div className="relative h-[600px] rounded-lg overflow-hidden shadow-xl group">
-                        <Image src="https://picsum.photos/seed/memories/600/700" alt="Decorate Your Memories" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="event decoration" />
+                        <Image src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499674/WhatsApp_Image_2025-09-19_at_10.44.37_PM_1_t333j8.jpg" alt="Decorate Your Memories" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="event decoration" />
                     </div>
                 </div>
             </div>
@@ -310,7 +310,7 @@ export default function Home() {
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="relative h-[600px] rounded-lg overflow-hidden shadow-xl order-last md:order-first group">
-                        <Image src="https://picsum.photos/seed/livings/800/600" alt="Decorate Your Livings" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="modern living room" />
+                        <Image src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499674/WhatsApp_Image_2025-09-19_at_10.44.37_PM_gtfntp.jpg" alt="Decorate Your Livings" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="modern living room" />
                     </div>
                     <div className="md:pl-8">
                         <h2 className="text-4xl font-bold font-display text-gray-800">We Decor Your Livings</h2>
