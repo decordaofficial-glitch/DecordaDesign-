@@ -47,7 +47,8 @@ export default function Home() {
       name: "Custom Neon Signs",
       price: "2,499.00Rs",
       image: "https://picsum.photos/seed/product6/400/600",
-      imageHint: "neon sign"    },
+      imageHint: "neon sign"
+    },
     {
       name: "Modern Art Prints",
       price: "899.00Rs",
@@ -62,40 +63,38 @@ export default function Home() {
     },
   ];
 
-  const testimonials = [
+  const logos = [
     {
-      name: "Fareeha Ismail",
-      rating: 5,
-      title: "Fantastic Birthday Backdrop! ★★★★★",
-      text: "Ordered the Frozen Elsa Birthday Backdrop for my daughter's party, and it was a game-changer! Easy setup, vibrant colors, and made for stunning photos. Highly recommended for an instant party.",
-      image: "https://picsum.photos/seed/testimonial-fareeha/300/400",
-      imageHint: "woman portrait"
+        src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769027/Our_Clients-01_jhjpje.png",
+        alt: "Client 1",
+        imageHint: "client 1 logo"
     },
     {
-      name: "********667",
-      rating: 5,
-      title: "Thankyouuu Soo much ❤️❤️",
-      text: "Bht bht acha bnaya apne 😍😍 I love it ❤️",
-      image: "https://picsum.photos/seed/testimonial1/300/400",
-      imageHint: "party decoration"
+        src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769027/Our_Clients-03_r3urkt.png",
+        alt: "Client 2",
+        imageHint: "client 2 logo"
     },
     {
-      name: "Kashif Ahmar",
-      rating: 5,
-      title: "Beautiful wedding backdrop! ★★★★★",
-      text: "It added a touch of elegance to our special day, and the quality exceeded our expectations. Highly recommend for anyone looking to enhance their wedding decor!",
-      image: "https://picsum.photos/seed/testimonial2/300/400",
-      imageHint: "man portrait"
+        src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769028/Our_Clients-02_bsizt3.png",
+        alt: "Client 3",
+        imageHint: "client 3 logo"
     },
     {
-      name: "********",
-      rating: 5,
-      title: "Exceptional home decor products! ★★★★★",
-      text: "The attention to detail and quality are unmatched. Our space has been transformed, thanks to these stylish and well-crafted pieces. Highly satisfied with the purchase!",
-      image: "https://picsum.photos/seed/testimonial3/300/400",
-      imageHint: "woman selfie"
+        src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769028/Our_Clients-05_g2f8gu.png",
+        alt: "Client 4",
+        imageHint: "client 4 logo"
+    },
+    {
+        src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769028/Our_Clients-04_h1rnv5.png",
+        alt: "Client 5",
+        imageHint: "client 5 logo"
+    },
+    {
+        src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769028/Our_Clients-06_mcmz9e.png",
+        alt: "Client 6",
+        imageHint: "client 6 logo"
     }
-  ]
+];
 
   const benefits = [
     {
@@ -338,29 +337,42 @@ export default function Home() {
             </div>
         </section>
         
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold font-display text-left mb-10 text-primary">Why Clients Love Us</h2>
-            <div className="flex overflow-x-auto thin-scrollbar pb-4 -mb-4">
-              <div className="flex gap-8">
-                {testimonials.map((testimonial, index) => (
-                    <div key={index} className="w-[600px] flex-shrink-0">
-                      <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-white h-full border group">
-                        <CardContent className="p-0 flex items-start">
-                          <div className="relative w-48 h-[250px] flex-shrink-0 overflow-hidden">
-                              <Image src={testimonial.image} alt={testimonial.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint={testimonial.imageHint} />
-                          </div>
-                          <div className="flex flex-col p-6">
-                              <h3 className="font-semibold text-lg">{testimonial.title}</h3>
-                              <p className="text-gray-600 text-sm flex-grow mt-2">{testimonial.text}</p>
-                              <p className="font-semibold text-right mt-4">{testimonial.name}</p>
-                          </div>
-                        </CardContent>
-                      </Card>
+            <h2 className="text-4xl font-bold font-display text-center mb-10 text-primary">Our Clients</h2>
+            <Carousel
+              setApi={setApi}
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full max-w-6xl mx-auto"
+            >
+              <CarouselContent>
+                {Array.from({ length: Math.ceil(logos.length / 3) }).map((_, i) => (
+                  <CarouselItem key={i} className="basis-full">
+                    <div className="flex justify-center items-center space-x-8 p-4">
+                      {logos.slice(i * 3, i * 3 + 3).map((logo, j) => (
+                        <div key={j} className="flex-shrink-0">
+                          <Image src={logo.src} alt={logo.alt} width={150} height={50} data-ai-hint={logo.imageHint} />
+                        </div>
+                      ))}
                     </div>
+                  </CarouselItem>
                 ))}
+              </CarouselContent>
+              <div className="flex justify-center items-center mt-8 space-x-2">
+                <CarouselPrevious className="static -translate-y-0" />
+                {Array.from({ length: Math.ceil(logos.length / 3) }).map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => api?.scrollTo(i)}
+                    className={`h-2 w-2 rounded-full ${current === i ? 'bg-black' : 'bg-gray-300'}`}
+                  />
+                ))}
+                <CarouselNext className="static -translate-y-0" />
               </div>
-            </div>
+            </Carousel>
           </div>
         </section>
 
@@ -473,7 +485,7 @@ export default function Home() {
                 <Link href="#" className="text-gray-400 hover:text-white hover:underline">FAQ</Link>
                 <Link href="#" className="text-gray-400 hover:text-white hover:underline">Shipping & Returns</Link>
                 <Link href="#" className="text-gray-400 hover:text-white hover:underline">Privacy Policy</Link>
-                <Link href="#" className="text-gray-400 hover:text-white hover:underline">Terms of Service</Link>
+                <Link href="#" className="text-gray-400 hover:text-white hover:underline">Terms of Service</Link>NECESSITY
               </nav>
             </div>
             <div>
