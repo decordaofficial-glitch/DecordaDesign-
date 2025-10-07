@@ -229,29 +229,17 @@ export default function Home() {
                     <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                       <div className="text-center text-white overflow-hidden">
                           <h1
-                            style={{
-                              transform: current === index ? 'translateY(0)' : 'translateY(4rem)',
-                              opacity: current === index ? 1 : 0,
-                            }}
-                            className="text-5xl md:text-7xl font-bold font-display transition-all duration-700 ease-out"
+                            className={`text-5xl md:text-7xl font-bold font-display transition-all duration-700 ease-out ${current === index ? 'animate-slide-up' : 'translate-y-16 opacity-0'}`}
                           >
                             {slide.title}
                           </h1>
                           <p
-                            style={{
-                              transform: current === index ? 'translateY(0)' : 'translateY(4rem)',
-                              opacity: current === index ? 1 : 0,
-                            }}
-                            className="mt-4 text-lg transition-all duration-700 ease-out delay-200"
+                            className={`mt-4 text-lg transition-all duration-700 ease-out delay-200 ${current === index ? 'animate-slide-up' : 'translate-y-16 opacity-0'}`}
                           >
                             {slide.subtitle}
                           </p>
                           <div
-                            style={{
-                              transform: current === index ? 'translateY(0)' : 'translateY(4rem)',
-                              opacity: current === index ? 1 : 0,
-                            }}
-                            className="transition-all duration-700 ease-out delay-300"
+                            className={`transition-all duration-700 ease-out delay-300 ${current === index ? 'animate-slide-up' : 'translate-y-16 opacity-0'}`}
                           >
                             <Button className="mt-8 bg-black hover:bg-gray-700 transition-colors duration-300">Shop Now</Button>
                           </div>
@@ -259,7 +247,7 @@ export default function Home() {
                     </div>
                   </div>
                 </CarouselItem>
-              ))}
+              ))}\
             </CarouselContent>
             <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-transparent border-2 border-white hover:bg-white/20 hover:text-white transition-all duration-300" />
             <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-transparent border-2 border-white hover:bg-white/20 hover:text-white transition-all duration-300" />
@@ -284,7 +272,7 @@ export default function Home() {
                     </div>
                   </CardContent>
                 </Card>
-              ))}
+              ))}\
             </div>
           </div>
         </section>
@@ -314,8 +302,8 @@ export default function Home() {
                     <div className="md:pl-8">
                         <h2 className="text-4xl font-bold font-display text-gray-800">We Decor Your Livings</h2>
                         <p className="text-lg font-semibold text-gray-600 mt-2">Transform Your Space with Timeless Elegance: Decorda Design Home Decor</p>
-                        <p className="mt-4 text-gray-600">Your home is a reflection of your style and personality, and at Decorda Design, we're here to help you curate a space that speaks to you. Our collection of home decorations is a celebration of sophistication and creativity, designed to elevate every corner of your living space.</p>
-                        <p className="mt-4 text-gray-600">Discover a range of chic and timeless pieces, from eye-catching wall art to stylish accent pieces that effortlessly enhance your home's aesthetic. Whether you prefer a modern, minimalist vibe or a classic, traditional feel, Decorda Design has the perfect decor to complement your taste.</p>
+                        <p className="mt-4 text-gray-600">Your home is a reflection of your style and personality, and at Decorda Design, we\'re here to help you curate a space that speaks to you. Our collection of home decorations is a celebration of sophistication and creativity, designed to elevate every corner of your living space.</p>
+                        <p className="mt-4 text-gray-600">Discover a range of chic and timeless pieces, from eye-catching wall art to stylish accent pieces that effortlessly enhance your home\'s aesthetic. Whether you prefer a modern, minimalist vibe or a classic, traditional feel, Decorda Design has the perfect decor to complement your taste.</p>
                         <p className="mt-4 text-gray-600">Quality craftsmanship is our hallmark. Each home decoration is meticulously crafted using premium materials, a-ai-hint="company logo abstract" ensuring durability and a touch of luxury. Our curated selection includes a variety of styles and themes, allowing you to infuse your unique personality into every room.</p>
                     </div>
                 </div>
@@ -356,10 +344,10 @@ export default function Home() {
                         <div key={j} className="flex-shrink-0">
                           <Image src={logo.src} alt={logo.alt} width={150} height={50} data-ai-hint={logo.imageHint} />
                         </div>
-                      ))}
+                      ))}\
                     </div>
                   </CarouselItem>
-                ))}
+                ))}\
               </CarouselContent>
               <div className="flex justify-center items-center mt-8 space-x-2">
                 <CarouselPrevious className="static -translate-y-0" />
@@ -369,7 +357,7 @@ export default function Home() {
                     onClick={() => api?.scrollTo(i)}
                     className={`h-2 w-2 rounded-full ${current === i ? 'bg-black' : 'bg-gray-300'}`}
                   />
-                ))}
+                ))}\
                 <CarouselNext className="static -translate-y-0" />
               </div>
             </Carousel>
@@ -409,7 +397,7 @@ export default function Home() {
                           {benefit.content}
                         </AccordionContent>
                       </AccordionItem>
-                    ))}
+                    ))}\
                 </Accordion>
             </div>
         </section>
