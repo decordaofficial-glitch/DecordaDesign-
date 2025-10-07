@@ -22,6 +22,18 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-[#F8F8F8]">
         {children}
         <Toaster />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/chat-widget@latest/dist/chat-widget.js';
+                script.async = true;
+                document.body.appendChild(script);
+              })();
+            `,
+          }}
+        />
       </body>
     </html>
   );
