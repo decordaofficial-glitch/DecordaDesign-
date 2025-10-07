@@ -1,15 +1,44 @@
 "use client";
 
-
+import React from "react";
 import Image from "next/image";
-import { Search, ShoppingCart, ShieldCheck, CircleDollarSign, Truck, Undo2, MapPin, Facebook, Instagram } from "lucide-react";
+import {
+  Search,
+  ShoppingCart,
+  ShieldCheck,
+  CircleDollarSign,
+  Truck,
+  Undo2,
+  MapPin,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import Link from 'next/link';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import React from "react";
+
+/**
+ * Full fixed page.tsx
+ * - Separate hero/client carousel APIs and states
+ * - Proper useEffect with add/remove event handlers
+ * - Safe initial selected index reads
+ * - Prevent disappearing text by using stable transitions
+ */
 
 export default function Home() {
   const products = [
@@ -17,152 +46,227 @@ export default function Home() {
       name: "Birthday Event Backdrops",
       price: "1,199.00Rs",
       image: "https://picsum.photos/seed/product1/400/600",
-      imageHint: "birthday backdrop"
+      imageHint: "birthday backdrop",
     },
     {
       name: "Wedding Backdrop",
       price: "1,299.00Rs",
       image: "https://picsum.photos/seed/product2/400/600",
-      imageHint: "wedding backdrop"
+      imageHint: "wedding backdrop",
     },
     {
       name: "3D Wall Clocks",
       price: "799.00Rs",
       image: "https://picsum.photos/seed/product3/400/600",
-      imageHint: "wall clock"
+      imageHint: "wall clock",
     },
     {
       name: "PVC Panaflex Wallpaper",
       price: "1,299.00Rs",
       image: "https://picsum.photos/seed/product4/400/600",
-      imageHint: "pvc wallpaper"
+      imageHint: "pvc wallpaper",
     },
     {
       name: "Anniversary Decor",
       price: "1,499.00Rs",
       image: "https://picsum.photos/seed/product5/400/600",
-      imageHint: "anniversary decoration"
+      imageHint: "anniversary decoration",
     },
     {
       name: "Custom Neon Signs",
       price: "2,499.00Rs",
       image: "https://picsum.photos/seed/product6/400/600",
-      imageHint: "neon sign"
+      imageHint: "neon sign",
     },
     {
       name: "Modern Art Prints",
       price: "899.00Rs",
       image: "https://picsum.photos/seed/product7/400/600",
-      imageHint: "abstract art"
+      imageHint: "abstract art",
     },
     {
       name: "Party Balloon Arch",
       price: "1,799.00Rs",
       image: "https://picsum.photos/seed/product8/400/600",
-      imageHint: "balloon arch"
+      imageHint: "balloon arch",
     },
   ];
 
   const logos = [
     {
-        src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769027/Our_Clients-01_jhjpje.png",
-        alt: "Client 1",
-        imageHint: "client 1 logo"
+      src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769027/Our_Clients-01_jhjpje.png",
+      alt: "Client 1",
+      imageHint: "client 1 logo",
     },
     {
-        src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769027/Our_Clients-03_r3urkt.png",
-        alt: "Client 2",
-        imageHint: "client 2 logo"
+      src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769027/Our_Clients-03_r3urkt.png",
+      alt: "Client 2",
+      imageHint: "client 2 logo",
     },
     {
-        src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769028/Our_Clients-02_bsizt3.png",
-        alt: "Client 3",
-        imageHint: "client 3 logo"
+      src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769028/Our_Clients-02_bsizt3.png",
+      alt: "Client 3",
+      imageHint: "client 3 logo",
     },
     {
-        src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769028/Our_Clients-05_g2f8gu.png",
-        alt: "Client 4",
-        imageHint: "client 4 logo"
+      src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769028/Our_Clients-05_g2f8gu.png",
+      alt: "Client 4",
+      imageHint: "client 4 logo",
     },
     {
-        src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769028/Our_Clients-04_h1rnv5.png",
-        alt: "Client 5",
-        imageHint: "client 5 logo"
+      src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769028/Our_Clients-04_h1rnv5.png",
+      alt: "Client 5",
+      imageHint: "client 5 logo",
     },
     {
-        src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769028/Our_Clients-06_mcmz9e.png",
-        alt: "Client 6",
-        imageHint: "client 6 logo"
-    }
-];
+      src: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759769028/Our_Clients-06_mcmz9e.png",
+      alt: "Client 6",
+      imageHint: "client 6 logo",
+    },
+  ];
 
   const benefits = [
     {
       icon: <CircleDollarSign className="h-6 w-6 text-white" />,
       title: "Money Back Guarantee",
-      content: "We offer a money back guarantee if you are not satisfied with our products."
+      content:
+        "We offer a money back guarantee if you are not satisfied with our products.",
     },
     {
       icon: <ShieldCheck className="h-6 w-6 text-white" />,
       title: "Pay On Delivery",
-      content: "Pay for your order when it is delivered to your doorstep."
+      content: "Pay for your order when it is delivered to your doorstep.",
     },
     {
       icon: <Truck className="h-6 w-6 text-white" />,
       title: "Express Delivery",
-      content: "Get your order delivered to you in the fastest time possible."
+      content: "Get your order delivered to you in the fastest time possible.",
     },
     {
       icon: <Undo2 className="h-6 w-6 text-white" />,
       title: "Easy Return Process",
-      content: "We have a simple and easy return process for your convenience."
+      content: "We have a simple and easy return process for your convenience.",
     },
-  ]
+  ];
 
   const heroSlides = [
     {
       title: "Event's Backdrops",
-      subtitle: "Create unforgettable moments with our stunning event backdrops.",
-      image: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499667/Event_Backdrops_u9ibuv.jpg",
-      imageHint: "event backdrop"
+      subtitle:
+        "Create unforgettable moments with our stunning event backdrops.",
+      image:
+        "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499667/Event_Backdrops_u9ibuv.jpg",
+      imageHint: "event backdrop",
     },
     {
       title: "Stunning Home Decor",
       subtitle: "Transform your living space with our elegant home decor pieces.",
-      image: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499667/Home_Decor_ufifql.jpg",
-      imageHint: "modern living room"
+      image:
+        "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499667/Home_Decor_ufifql.jpg",
+      imageHint: "modern living room",
     },
     {
       title: "Party Supplies",
       subtitle: "Everything you need for your next celebration.",
-      image: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499636/Party_Supplies_lwpdio.jpg",
-      imageHint: "party supplies"
+      image:
+        "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499636/Party_Supplies_lwpdio.jpg",
+      imageHint: "party supplies",
     },
     {
-      title: "Fasion Supplies",
+      title: "Fashion Supplies",
       subtitle: "Everything you need for your next celebration.",
-      image: "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499666/Decorda_Fasion_arqpuq.jpg",
-      imageHint: "Fasion supplies"
-    }
-   
-]
-  
-  const [api, setApi] = React.useState<CarouselApi>()
-  const [current, setCurrent] = React.useState(0)
- 
+      image:
+        "https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499666/Decorda_Fasion_arqpuq.jpg",
+      imageHint: "fashion supplies",
+    },
+  ];
+
+  // --- separate APIs and states for hero and client carousels ---
+  const [heroApi, setHeroApi] = React.useState<CarouselApi | undefined>(
+    undefined
+  );
+  const [heroCurrent, setHeroCurrent] = React.useState<number>(0);
+
+  const [clientApi, setClientApi] = React.useState<CarouselApi | undefined>(
+    undefined
+  );
+  const [clientCurrent, setClientCurrent] = React.useState<number>(0);
+
+  // HERO carousel effect: set initial index and subscribe to selects
   React.useEffect(() => {
-    if (!api) {
-      return
-    }
- 
-    setCurrent(api.scrollSnapList().length)
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap())
-    })
- 
-  }, [api])
-  
-  const navLinkClasses = "relative text-gray-600 after:absolute after:left-1/2 after:right-1/2 after:bottom-0 after:h-[1.5px] after:bg-primary after:transition-all after:duration-300 hover:text-primary hover:after:left-0 hover:after:right-0";
+    if (!heroApi) return;
+
+    const setInitial = () => {
+      try {
+        if (typeof heroApi.selectedScrollSnap === "function") {
+          setHeroCurrent(heroApi.selectedScrollSnap() ?? 0);
+        } else {
+          setHeroCurrent(0);
+        }
+      } catch {
+        setHeroCurrent(0);
+      }
+    };
+
+    const onSelect = () => {
+      try {
+        if (typeof heroApi.selectedScrollSnap === "function") {
+          setHeroCurrent(heroApi.selectedScrollSnap());
+        }
+      } catch {
+        // ignore
+      }
+    };
+
+    setInitial();
+
+    // register listener if available
+    if (typeof heroApi.on === "function") heroApi.on("select", onSelect);
+
+    return () => {
+      if (typeof heroApi.off === "function") heroApi.off("select", onSelect);
+    };
+  }, [heroApi]);
+
+  // CLIENT carousel effect: set initial index and subscribe to selects
+  React.useEffect(() => {
+    if (!clientApi) return;
+
+    const setInitial = () => {
+      try {
+        if (typeof clientApi.selectedScrollSnap === "function") {
+          setClientCurrent(clientApi.selectedScrollSnap() ?? 0);
+        } else {
+          setClientCurrent(0);
+        }
+      } catch {
+        setClientCurrent(0);
+      }
+    };
+
+    const onSelect = () => {
+      try {
+        if (typeof clientApi.selectedScrollSnap === "function") {
+          setClientCurrent(clientApi.selectedScrollSnap());
+        }
+      } catch {
+        // ignore
+      }
+    };
+
+    setInitial();
+
+    if (typeof clientApi.on === "function")
+      clientApi.on("select", onSelect);
+
+    return () => {
+      if (typeof clientApi.off === "function")
+        clientApi.off("select", onSelect);
+    };
+  }, [clientApi]);
+
+  const navLinkClasses =
+    "relative text-gray-600 after:absolute after:left-1/2 after:right-1/2 after:bottom-0 after:h-[1.5px] after:bg-primary after:transition-all after:duration-300 hover:text-primary hover:after:left-0 hover:after:right-0";
 
   return (
     <div className="bg-[#F8F8F8] text-gray-800">
@@ -172,39 +276,67 @@ export default function Home() {
 
       <header className="border-b bg-white sticky top-0 z-50">
         <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between py-6">
-                <div className="flex items-center gap-8">
-                    <Link href="/" className="flex flex-col -space-y-2 leading-none">
-                      <Image src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759494205/Decorda_Header_Logo_x7kfez.png" alt="Decorda Logo" width={150} height={50} />
-                    </Link>
-                </div>
-                <nav className="hidden md:flex items-center justify-center flex-1 gap-8 text-sm">
-                    <Link href="#" className={navLinkClasses}>Home</Link>
-                    <Link href="#" className={navLinkClasses}>Event Backdrops</Link>
-                    <Link href="#" className={navLinkClasses}>Cards & Invitations</Link>
-                    <Link href="#" className={navLinkClasses}>Welcome Standee</Link>
-                    <Link href="#" className={navLinkClasses}>Home Decor</Link>
-                    <Link href="#" className={navLinkClasses}>Wall Poster</Link>
-                    <Link href="#" className={navLinkClasses}>Party Supplies</Link>
-                    <Link href="#" className={navLinkClasses}>Contact Us</Link>
-                </nav>
-                <div className="flex items-center gap-4">
-                    <Button variant="outline" className="hidden md:inline-flex bg-black text-white hover:bg-gray-700 border-black transition-colors duration-300">Shop Now</Button>
-                    <div className="flex items-center gap-4">
-                      <Search className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary transition-colors duration-300" />
-                      <Link href="/cart">
-                        <ShoppingCart className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary transition-colors duration-300" />
-                      </Link>
-                    </div>
-                </div>
+          <div className="flex items-center justify-between py-6">
+            <div className="flex items-center gap-8">
+              <Link href="/" className="flex flex-col -space-y-2 leading-none">
+                <Image
+                  src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759494205/Decorda_Header_Logo_x7kfez.png"
+                  alt="Decorda Logo"
+                  width={150}
+                  height={50}
+                />
+              </Link>
             </div>
+            <nav className="hidden md:flex items-center justify-center flex-1 gap-8 text-sm">
+              <Link href="#" className={navLinkClasses}>
+                Home
+              </Link>
+              <Link href="#" className={navLinkClasses}>
+                Event Backdrops
+              </Link>
+              <Link href="#" className={navLinkClasses}>
+                Cards & Invitations
+              </Link>
+              <Link href="#" className={navLinkClasses}>
+                Welcome Standee
+              </Link>
+              <Link href="#" className={navLinkClasses}>
+                Home Decor
+              </Link>
+              <Link href="#" className={navLinkClasses}>
+                Wall Poster
+              </Link>
+              <Link href="#" className={navLinkClasses}>
+                Party Supplies
+              </Link>
+              <Link href="#" className={navLinkClasses}>
+                Contact Us
+              </Link>
+            </nav>
+            <div className="flex items-center gap-4">
+              <Button
+                variant="outline"
+                className="hidden md:inline-flex bg-black text-white hover:bg-gray-700 border-black transition-colors duration-300"
+              >
+                Shop Now
+              </Button>
+              <div className="flex items-center gap-4">
+                <Search className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary transition-colors duration-300" />
+                <Link href="/cart">
+                  <ShoppingCart className="h-5 w-5 text-gray-600 cursor-pointer hover:text-primary transition-colors duration-300" />
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
 
       <main>
+        {/* ===== HERO CAROUSEL (fixed) ===== */}
         <section className="relative group">
           <Carousel
-            setApi={setApi}
+            // pass hero API setter
+            setApi={setHeroApi}
             opts={{ loop: true }}
             plugins={[
               Autoplay({
@@ -227,22 +359,37 @@ export default function Home() {
                       data-ai-hint={slide.imageHint}
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                      <div className="text-center text-white overflow-hidden">
-                          <h1
-                            className={`text-5xl md:text-7xl font-bold font-display transition-all duration-700 ease-out ${current === index ? 'animate-slide-up' : 'translate-y-16 opacity-0'}`}
-                          >
-                            {slide.title}
-                          </h1>
-                          <p
-                            className={`mt-4 text-lg transition-all duration-700 ease-out delay-200 ${current === index ? 'animate-slide-up' : 'translate-y-16 opacity-0'}`}
-                          >
-                            {slide.subtitle}
-                          </p>
-                          <div
-                            className={`transition-all duration-700 ease-out delay-300 ${current === index ? 'animate-slide-up' : 'translate-y-16 opacity-0'}`}
-                          >
-                            <Button className="mt-8 bg-black hover:bg-gray-700 transition-colors duration-300">Shop Now</Button>
-                          </div>
+                      <div className="text-center text-white overflow-hidden px-4">
+                        {/* Use opacity + translate transitions so text doesn't vanish abruptly */}
+                        <h1
+                          className={`text-5xl md:text-7xl font-bold font-display transition-all duration-700 ease-out ${
+                            heroCurrent === index
+                              ? "opacity-100 translate-y-0 animate-slide-up"
+                              : "opacity-0 -translate-y-0 translate-y-16 pointer-events-none"
+                          }`}
+                        >
+                          {slide.title}
+                        </h1>
+                        <p
+                          className={`mt-4 text-lg transition-all duration-700 ease-out delay-200 ${
+                            heroCurrent === index
+                              ? "opacity-100 translate-y-0 animate-slide-up"
+                              : "opacity-0 translate-y-16 pointer-events-none"
+                          }`}
+                        >
+                          {slide.subtitle}
+                        </p>
+                        <div
+                          className={`transition-all duration-700 ease-out delay-300 ${
+                            heroCurrent === index
+                              ? "opacity-100 translate-y-0 animate-slide-up"
+                              : "opacity-0 translate-y-16 pointer-events-none"
+                          }`}
+                        >
+                          <Button className="mt-8 bg-black hover:bg-gray-700 transition-colors duration-300">
+                            Shop Now
+                          </Button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -254,21 +401,39 @@ export default function Home() {
           </Carousel>
         </section>
 
+        {/* ===== FEATURED PRODUCTS ===== */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold font-display text-center mb-10 text-primary">Featured Products</h2>
+            <h2 className="text-4xl font-bold font-display text-center mb-10 text-primary">
+              Featured Products
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
               {products.map((product, index) => (
-                <Card key={index} className="overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+                <Card
+                  key={index}
+                  className="overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
+                >
                   <CardContent className="p-0">
                     <div className="relative h-96 w-full">
-                       <Image src={product.image} alt={product.name} fill className="object-cover transition-transform duration-300 group-hover:scale-105" data-ai-hint={product.imageHint} />
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        data-ai-hint={product.imageHint}
+                      />
                     </div>
                     <div className="p-6 text-center">
-                      <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
+                      <h3 className="text-lg font-semibold text-gray-800">
+                        {product.name}
+                      </h3>
                       <p className="text-gray-600 mt-2">Starting From:</p>
-                      <p className="text-xl font-bold text-primary mt-1">{product.price}</p>
-                      <Button className="mt-6 bg-black hover:bg-gray-700 transition-colors duration-300">Buy Now</Button>
+                      <p className="text-xl font-bold text-primary mt-1">
+                        {product.price}
+                      </p>
+                      <Button className="mt-6 bg-black hover:bg-gray-700 transition-colors duration-300">
+                        Buy Now
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -277,59 +442,137 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ===== INFO / IMAGES SECTIONS ===== */}
         <section className="py-16 bg-gray-50">
-            <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 className="text-4xl font-bold font-display text-gray-800">Let Us Decorate Your Memories</h2>
-                        <p className="text-lg font-semibold text-gray-600 mt-2">We Believe In Quality Over Quantity</p>
-                        <p className="mt-4 text-gray-600">At Decorda Design, we believe that every event is an opportunity to create magic and lasting memories. Our curated selection of event decorations is designed to transform any space into a captivating and visually stunning setting.</p>
-                        <p className="mt-4 text-gray-600">From enchanting weddings to lively birthday celebrations, our decorations are crafted with precision and creativity, ensuring that each detail contributes to the overall ambiance of your event. Whether you envision a romantic and timeless atmosphere or a modern and vibrant vibe, Decorda Design has the perfect pieces to bring your vision to life.</p>
-                    </div>
-                    <div className="relative h-[600px] rounded-lg overflow-hidden shadow-xl group">
-                        <Image src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499674/WhatsApp_Image_2025-09-19_at_10.44.37_PM_1_t333j8.jpg" alt="Decorate Your Memories" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="event decoration" />
-                    </div>
-                </div>
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-4xl font-bold font-display text-gray-800">
+                  Let Us Decorate Your Memories
+                </h2>
+                <p className="text-lg font-semibold text-gray-600 mt-2">
+                  We Believe In Quality Over Quantity
+                </p>
+                <p className="mt-4 text-gray-600">
+                  At Decorda Design, we believe that every event is an
+                  opportunity to create magic and lasting memories. Our curated
+                  selection of event decorations is designed to transform any
+                  space into a captivating and visually stunning setting.
+                </p>
+                <p className="mt-4 text-gray-600">
+                  From enchanting weddings to lively birthday celebrations, our
+                  decorations are crafted with precision and creativity,
+                  ensuring that each detail contributes to the overall ambiance
+                  of your event. Whether you envision a romantic and timeless
+                  atmosphere or a modern and vibrant vibe, Decorda Design has
+                  the perfect pieces to bring your vision to life.
+                </p>
+              </div>
+              <div className="relative h-[600px] rounded-lg overflow-hidden shadow-xl group">
+                <Image
+                  src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499674/WhatsApp_Image_2025-09-19_at_10.44.37_PM_1_t333j8.jpg"
+                  alt="Decorate Your Memories"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                  data-ai-hint="event decoration"
+                />
+              </div>
             </div>
+          </div>
         </section>
 
-        <section className="py-16 bg-white">
-            <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="relative h-[600px] rounded-lg overflow-hidden shadow-xl order-last md:order-first group">
-                        <Image src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499674/WhatsApp_Image_2025-09-19_at_10.44.37_PM_gtfntp.jpg" alt="Decorate Your Livings" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="modern living room" />
-                    </div>
-                    <div className="md:pl-8">
-                        <h2 className="text-4xl font-bold font-display text-gray-800">We Decor Your Livings</h2>
-                        <p className="text-lg font-semibold text-gray-600 mt-2">Transform Your Space with Timeless Elegance: Decorda Design Home Decor</p>
-                        <p className="mt-4 text-gray-600">Your home is a reflection of your style and personality, and at Decorda Design, we're here to help you curate a space that speaks to you. Our collection of home decorations is a celebration of sophistication and creativity, designed to elevate every corner of your living space.</p>
-                        <p className="mt-4 text-gray-600">Discover a range of chic and timeless pieces, from eye-catching wall art to stylish accent pieces that effortlessly enhance your home's aesthetic. Whether you prefer a modern, minimalist vibe or a classic, traditional feel, Decorda Design has the perfect decor to complement your taste.</p>
-                        <p className="mt-4 text-gray-600">Quality craftsmanship is our hallmark. Each home decoration is meticulously crafted using premium materials, a-ai-hint="company logo abstract" ensuring durability and a touch of luxury. Our curated selection includes a variety of styles and themes, allowing you to infuse your unique personality into every room.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section className="py-16 bg-white">
-            <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 className="text-4xl font-bold font-display text-primary">Know More About Decorda</h2>
-                        <p className="mt-4 text-gray-600">Welcome to Decorda Design, your one-stop destination for all your event supplies and home decor needs! At Decorda, we blend creativity with quality to transform your special occasions and living spaces into unforgettable experiences. From elegant event supplies that set the perfect ambiance to stylish home decor pieces that reflect your unique taste, Decorda Design is your partner in turning dreams into reality. Discover a world of curated designs and impeccable craftsmanship—where every detail matters. Elevate your events and homes with Decorda Design, where style meets substance.</p>
-                        <Button className="mt-6 bg-black hover:bg-gray-700 transition-colors duration-300">Learn More</Button>
-                    </div>
-                    <div className="relative h-[400px] rounded-lg overflow-hidden group">
-                        <Image src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759494107/About_Us_dalgr6.jpg" alt="Decorda Logo" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="company logo abstract" />
-                    </div>
-                </div>
-            </div>
-        </section>
-        
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold font-display text-center mb-10 text-primary">Our Clients</h2>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="relative h-[600px] rounded-lg overflow-hidden shadow-xl order-last md:order-first group">
+                <Image
+                  src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759499674/WhatsApp_Image_2025-09-19_at_10.44.37_PM_gtfntp.jpg"
+                  alt="Decorate Your Livings"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                  data-ai-hint="modern living room"
+                />
+              </div>
+              <div className="md:pl-8">
+                <h2 className="text-4xl font-bold font-display text-gray-800">
+                  We Decor Your Livings
+                </h2>
+                <p className="text-lg font-semibold text-gray-600 mt-2">
+                  Transform Your Space with Timeless Elegance: Decorda Design
+                  Home Decor
+                </p>
+                <p className="mt-4 text-gray-600">
+                  Your home is a reflection of your style and personality, and
+                  at Decorda Design, we're here to help you curate a space that
+                  speaks to you. Our collection of home decorations is a
+                  celebration of sophistication and creativity, designed to
+                  elevate every corner of your living space.
+                </p>
+                <p className="mt-4 text-gray-600">
+                  Discover a range of chic and timeless pieces, from eye-catching
+                  wall art to stylish accent pieces that effortlessly enhance
+                  your home's aesthetic. Whether you prefer a modern, minimalist
+                  vibe or a classic, traditional feel, Decorda Design has the
+                  perfect decor to complement your taste.
+                </p>
+                <p className="mt-4 text-gray-600">
+                  Quality craftsmanship is our hallmark. Each home decoration is
+                  meticulously crafted using premium materials, ensuring
+                  durability and a touch of luxury. Our curated selection
+                  includes a variety of styles and themes, allowing you to
+                  infuse your unique personality into every room.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== ABOUT / KNOW MORE ===== */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-4xl font-bold font-display text-primary">
+                  Know More About Decorda
+                </h2>
+                <p className="mt-4 text-gray-600">
+                  Welcome to Decorda Design, your one-stop destination for all
+                  your event supplies and home decor needs! At Decorda, we blend
+                  creativity with quality to transform your special occasions
+                  and living spaces into unforgettable experiences. From elegant
+                  event supplies that set the perfect ambiance to stylish home
+                  decor pieces that reflect your unique taste, Decorda Design is
+                  your partner in turning dreams into reality. Discover a world
+                  of curated designs and impeccable craftsmanship—where every
+                  detail matters. Elevate your events and homes with Decorda
+                  Design, where style meets substance.
+                </p>
+                <Button className="mt-6 bg-black hover:bg-gray-700 transition-colors duration-300">
+                  Learn More
+                </Button>
+              </div>
+              <div className="relative h-[400px] rounded-lg overflow-hidden group">
+                <Image
+                  src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759494107/About_Us_dalgr6.jpg"
+                  alt="Decorda Logo"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                  data-ai-hint="company logo abstract"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== CLIENT CAROUSEL (fixed) ===== */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold font-display text-center mb-10 text-primary">
+              Our Clients
+            </h2>
             <Carousel
-              setApi={setApi}
+              // pass client API setter (separate from hero)
+              setApi={setClientApi}
               opts={{
                 align: "start",
                 loop: true,
@@ -337,134 +580,236 @@ export default function Home() {
               className="w-full max-w-6xl mx-auto"
             >
               <CarouselContent>
-                {Array.from({ length: Math.ceil(logos.length / 3) }).map((_, i) => (
-                  <CarouselItem key={i} className="basis-full">
-                    <div className="flex justify-center items-center space-x-8 p-4">
-                      {logos.slice(i * 3, i * 3 + 3).map((logo, j) => (
-                        <div key={j} className="flex-shrink-0">
-                          <Image src={logo.src} alt={logo.alt} width={150} height={50} data-ai-hint={logo.imageHint} />
-                        </div>
-                      ))}
-                    </div>
-                  </CarouselItem>
-                ))}
+                {Array.from({ length: Math.ceil(logos.length / 3) }).map(
+                  (_, i) => (
+                    <CarouselItem key={i} className="basis-full">
+                      <div className="flex justify-center items-center space-x-8 p-4">
+                        {logos
+                          .slice(i * 3, i * 3 + 3)
+                          .map((logo, j) => (
+                            <div key={j} className="flex-shrink-0">
+                              <Image
+                                src={logo.src}
+                                alt={logo.alt}
+                                width={150}
+                                height={50}
+                                data-ai-hint={logo.imageHint}
+                              />
+                            </div>
+                          ))}
+                      </div>
+                    </CarouselItem>
+                  )
+                )}
               </CarouselContent>
               <div className="flex justify-center items-center mt-8 space-x-2">
                 <CarouselPrevious className="static -translate-y-0" />
-                {Array.from({ length: Math.ceil(logos.length / 3) }).map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => api?.scrollTo(i)}
-                    className={`h-2 w-2 rounded-full ${current === i ? 'bg-black' : 'bg-gray-300'}`}
-                  />
-                ))}
+                {Array.from({ length: Math.ceil(logos.length / 3) }).map(
+                  (_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => clientApi?.scrollTo(i)}
+                      className={`h-2 w-2 rounded-full ${
+                        clientCurrent === i ? "bg-black" : "bg-gray-300"
+                      }`}
+                    />
+                  )
+                )}
                 <CarouselNext className="static -translate-y-0" />
               </div>
             </Carousel>
           </div>
         </section>
 
+        {/* ===== SALE BANNER ===== */}
         <section className="relative h-[400px] w-full my-16 group">
-            <Image
-                src="https://picsum.photos/seed/sale-banner/1920/400"
-                alt="Sale banner"
+          <Image
+            src="https://picsum.photos/seed/sale-banner/1920/400"
+            alt="Sale banner"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+            data-ai-hint="modern living room"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="text-center text-white">
+              <h2 className="text-5xl md:text-6xl font-bold font-display">
+                Sale up to 20% Off
+              </h2>
+              <p className="mt-4 text-lg">
+                Find the perfect match for your event decor in a reasonable
+                price
+              </p>
+              <Button className="mt-8 bg-black hover:bg-gray-700 transition-colors duration-300">
+                Shop Now
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== BENEFITS ===== */}
+        <section className="py-16 bg-charcoal text-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold font-display text-center mb-10 text-white">
+              Our Benefits
+            </h2>
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full max-w-3xl mx-auto"
+            >
+              {benefits.map((benefit, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index + 1}`}
+                  className="border-gray-600"
+                >
+                  <AccordionTrigger className="hover:text-red-600 transition-colors duration-300">
+                    <div className="flex items-center gap-4">
+                      {benefit.icon}
+                      <span className="font-semibold">{benefit.title}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="pl-10 text-gray-300">
+                    {benefit.content}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
+
+        {/* ===== CONTACT ===== */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold font-display text-center mb-10 text-primary">
+              Contact Us
+            </h2>
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl mb-12 group">
+              <Image
+                src="https://picsum.photos/seed/contact-hero/1200/400"
+                alt="Contact Us"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                data-ai-hint="modern living room"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                <div className="text-center text-white">
-                    <h2 className="text-5xl md:text-6xl font-bold font-display">Sale up to 20% Off</h2>
-                    <p className="mt-4 text-lg">Find the perfect match for your event decor in a reasonable price</p>
-                    <Button className="mt-8 bg-black hover:bg-gray-700 transition-colors duration-300">Shop Now</Button>
-                </div>
+                data-ai-hint="office building"
+              />
             </div>
-        </section>
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <div>
+                <h3 className="text-xl font-bold font-display text-primary">
+                  Gulistan e Johar Branch
+                </h3>
+                <p className="mt-4 text-muted-foreground">
+                  Office: 9th Floor Building, Neighborhood Section 20, Gulistan e
+                  Johar, Near Toyota Showroom
+                </p>
+                <p className="mt-2 text-muted-foreground">Karachi, Pakistan</p>
+                <a
+                  href="#"
+                  className="text-primary mt-2 inline-flex items-center gap-1 hover:underline"
+                >
+                  Get directions <MapPin className="h-4 w-4" />
+                </a>
 
-        <section className="py-16 bg-charcoal text-white">
-            <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold font-display text-center mb-10 text-white">Our Benefits</h2>
-                 <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
-                    {benefits.map((benefit, index) => (
-                      <AccordionItem key={index} value={`item-${index+1}`} className="border-gray-600">
-                        <AccordionTrigger className="hover:text-red-600 transition-colors duration-300">
-                          <div className="flex items-center gap-4">
-                            {benefit.icon}
-                            <span className="font-semibold">{benefit.title}</span>
-                          </div>
-                        </AccordionTrigger>
-                        <AccordionContent className="pl-10 text-gray-300">
-                          {benefit.content}
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                </Accordion>
-            </div>
-        </section>
+                <h3 className="text-xl font-bold font-display text-primary mt-8">
+                  Open hours
+                </h3>
+                <p className="mt-2 text-muted-foreground">Always Open</p>
 
-        <section className="py-16 bg-gray-50">
-            <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold font-display text-center mb-10 text-primary">Contact Us</h2>
-                <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl mb-12 group">
-                    <Image src="https://picsum.photos/seed/contact-hero/1200/400" alt="Contact Us" fill className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" data-ai-hint="office building" />
+                <h3 className="text-xl font-bold font-display text-primary mt-8">
+                  Contact Info
+                </h3>
+                <a
+                  href="tel:+923192483064"
+                  className="mt-2 text-muted-foreground block hover:text-primary transition-colors duration-300"
+                >
+                  +92 319 2483064
+                </a>
+                <a
+                  href="mailto:decordaofficial@gmail.com"
+                  className="mt-1 text-muted-foreground block hover:text-primary transition-colors duration-300"
+                >
+                  decordaofficial@gmail.com
+                </a>
+
+                <div className="flex gap-4 mt-4">
+                  <a
+                    href="#"
+                    className="text-primary hover:text-primary/80 transition-colors duration-300"
+                  >
+                    <Facebook className="h-6 w-6" />
+                  </a>
+                  <a
+                    href="#"
+                    className="text-primary hover:text-primary/80 transition-colors duration-300"
+                  >
+                    <Instagram className="h-6 w-6" />
+                  </a>
                 </div>
-                <div className="grid md:grid-cols-2 gap-12 items-start">
-                    <div>
-                        <h3 className="text-xl font-bold font-display text-primary">Gulistan e Johar Branch</h3>
-                        <p className="mt-4 text-muted-foreground">Office: 9th Floor Building, Neighborhood Section 20, Gulistan e Johar, Near Toyota Showroom</p>
-                        <p className="mt-2 text-muted-foreground">Karachi, Pakistan</p>
-                        <a href="#" className="text-primary mt-2 inline-flex items-center gap-1 hover:underline">Get directions <MapPin className="h-4 w-4" /></a>
-                        
-                        <h3 className="text-xl font-bold font-display text-primary mt-8">Open hours</h3>
-                        <p className="mt-2 text-muted-foreground">Always Open</p>
-
-                        <h3 className="text-xl font-bold font-display text-primary mt-8">Contact Info</h3>
-                        <a href="tel:+923192483064" className="mt-2 text-muted-foreground block hover:text-primary transition-colors duration-300">+92 319 2483064</a>
-                        <a href="mailto:decordaofficial@gmail.com" className="mt-1 text-muted-foreground block hover:text-primary transition-colors duration-300">decordaofficial@gmail.com</a>
-
-                        <div className="flex gap-4 mt-4">
-                          <a href="#" className="text-primary hover:text-primary/80 transition-colors duration-300"><Facebook className="h-6 w-6" /></a>
-                          <a href="#" className="text-primary hover:text-primary/80 transition-colors duration-300"><Instagram className="h-6 w-6" /></a>
-                        </div>
-                    </div>
-                    <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
-                        <iframe
-                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.434293937953!2d67.1147023150039!3d24.88313298404454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3395a60a74b7f%3A0x94b411d3326fc49e!2sGulistan-e-Johar%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2sus!4v1684484089941!5m2!1sen!2sus"
-                          width="100%"
-                          height="100%"
-                          style={{ border: 0 }}
-                          allowFullScreen={true}
-                          loading="lazy"
-                          referrerPolicy="no-referrer-when-downgrade"
-                          title="Google Map of Gulistan e Johar Branch"
-                        ></iframe>
-                    </div>
-                </div>
+              </div>
+              <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.434293937953!2d67.1147023150039!3d24.88313298404454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3395a60a74b7f%3A0x94b411d3326fc49e!2sGulistan-e-Johar%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2sus!4v1684484089941!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Google Map of Gulistan e Johar Branch"
+                ></iframe>
+              </div>
             </div>
+          </div>
         </section>
-
       </main>
 
+      {/* ===== FOOTER ===== */}
       <footer className="bg-black text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-1">
               <Link href="/" className="flex flex-col -space-y-2 leading-none">
-                <Image src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759494205/Decorda_Header_Logo_x7kfez.png" alt="Decorda Logo" width={150} height={50} />
+                <Image
+                  src="https://res.cloudinary.com/dh7m6g7f8/image/upload/v1759494205/Decorda_Header_Logo_x7kfez.png"
+                  alt="Decorda Logo"
+                  width={150}
+                  height={50}
+                />
               </Link>
-              <p className="mt-4 text-gray-400 text-sm">Elevate your events and homes with Decorda Design, where style meets substance.</p>
+              <p className="mt-4 text-gray-400 text-sm">
+                Elevate your events and homes with Decorda Design, where style
+                meets substance.
+              </p>
               <div className="flex gap-4 mt-6">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300"><Facebook className="h-6 w-6" /></a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300"><Instagram className="h-6 w-6" /></a>
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  <Facebook className="h-6 w-6" />
+                </a>
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  <Instagram className="h-6 w-6" />
+                </a>
               </div>
             </div>
             <div>
               <h3 className="font-semibold text-white">Quick Links</h3>
               <nav className="mt-4 flex flex-col gap-2 text-sm">
-                <Link href="#" className="text-gray-400 hover:text-white hover:underline">Home</Link>
-                <Link href="#" className="text-gray-400 hover:text-white hover:underline">Event Backdrops</Link>
-                <Link href="#" className="text-gray-400 hover:text-white hover:underline">Home Decor</Link>
-                <Link href="#" className="text-gray-400 hover:text-white hover:underline">Contact Us</Link>
+                <Link href="#" className="text-gray-400 hover:text-white hover:underline">
+                  Home
+                </Link>
+                <Link href="#" className="text-gray-400 hover:text-white hover:underline">
+                  Event Backdrops
+                </Link>
+                <Link href="#" className="text-gray-400 hover:text-white hover:underline">
+                  Home Decor
+                </Link>
+                <Link href="#" className="text-gray-400 hover:text-white hover:underline">
+                  Contact Us
+                </Link>
               </nav>
             </div>
             <div>
@@ -489,7 +834,9 @@ export default function Home() {
               <Link href="#" className="text-gray-500 hover:text-white hover:underline">Cookie settings</Link>
               <Link href="#" className="text-gray-500 hover:text-white hover:underline">Report abuse</Link>
             </div>
-            <p className="mt-4 md:mt-0 text-gray-500">&copy; {new Date().getFullYear()} Decorda Design. Powered by Lightpost.</p>
+            <p className="mt-4 md:mt-0 text-gray-500">
+              &copy; {new Date().getFullYear()} Decorda Design. Powered by Lightpost.
+            </p>
           </div>
         </div>
       </footer>
