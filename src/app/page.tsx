@@ -6,7 +6,6 @@ import Hero from "./components/Hero";
 import FeaturedProducts from "./components/FeaturedProducts";
 import Info from "./components/Info";
 import Clients from "./components/Clients";
-import SaleBanner from "./components/SaleBanner";
 import Benefits from "./components/Benefits";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -25,7 +24,6 @@ export default function Home() {
         <FeaturedProducts />
         <Info />
         <Clients />
-        <SaleBanner />
         <Benefits />
         <Contact />
       </main>
