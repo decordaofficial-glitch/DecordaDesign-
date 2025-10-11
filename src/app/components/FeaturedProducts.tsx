@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -59,7 +59,7 @@ export default function FeaturedProducts() {
     return (
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold font-display text-center mb-10 text-primary">
+            <h2 className="text-4xl font-bold font-display text-center mb-10 text-charcoal">
               Featured Products
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
@@ -74,6 +74,7 @@ export default function FeaturedProducts() {
                         src={product.image}
                         alt={product.name}
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                         data-ai-hint={product.imageHint}
                       />
@@ -94,7 +95,7 @@ export default function FeaturedProducts() {
                 </Card>
               ))}
             </div>
-            <h2 className="text-4xl font-bold font-display text-center my-10 text-primary">
+            <h2 className="text-4xl font-bold font-display text-center my-10 text-charcoal">
               Our Services
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
@@ -109,6 +110,7 @@ export default function FeaturedProducts() {
                         src={product.image}
                         alt={product.name}
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                         data-ai-hint={product.imageHint}
                       />
