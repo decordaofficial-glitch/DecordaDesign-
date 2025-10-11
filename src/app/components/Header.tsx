@@ -28,31 +28,25 @@ export default function Header() {
               Home
             </Link>
             <Link href="#" className={navLinkClasses}>
-              Event Backdrops
+              Shop
             </Link>
             <Link href="#" className={navLinkClasses}>
-              Cards & Invitations
+              Services
             </Link>
             <Link href="#" className={navLinkClasses}>
-              Welcome Standee
-            </Link>
-            <Link href="#" className={navLinkClasses}>
-              Home Decor
-            </Link>
-            <Link href="#" className={navLinkClasses}>
-              Wall Poster
-            </Link>
-            <Link href="#" className={navLinkClasses}>
-              Party Supplies
+              Portfolio
             </Link>
             <Link href="#" className={navLinkClasses}>
               Contact Us
             </Link>
+            <Link href="#" className={navLinkClasses}>
+              About Us
+            </Link>
           </nav>
           <div className="flex items-center gap-4">
             <Button
-              variant="outline"
-              className="hidden md:inline-flex bg-black text-white hover:bg-gray-700 border-black transition-colors duration-300"
+              variant="black"
+              className="hidden md:inline-flex transition-colors duration-300"
             >
               Shop Now
             </Button>
